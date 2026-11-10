@@ -1971,7 +1971,207 @@
 "/Game/FantasyBundle/Meshes/SM_FlagPole02.SM_FlagPole02": 1793801072,
 "/Game/FantasyBundle/Meshes/SM_TileGround4m.SM_TileGround4m": 1793801075,
 "/Game/FantasyBundle/Meshes/SM_TileGround8m.SM_TileGround8m": 1793801075,
-"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Lemon_Fresh_01/SM_Food_Fruit_Lemon_Fresh_01.SM_Food_Fruit_Lemon_Fresh_01": 1794123602
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Lemon_Fresh_01/SM_Food_Fruit_Lemon_Fresh_01.SM_Food_Fruit_Lemon_Fresh_01": 1794123602,
+"/Game/FantasyBundle/Meshes/SM_CastleWall1m.SM_CastleWall1m": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m01.SM_CastleWall3m01": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m02.SM_CastleWall3m02": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m03.SM_CastleWall3m03": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m04.SM_CastleWall3m04": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWallCorner3m.SM_CastleWallCorner3m": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWallCorner6m01.SM_CastleWallCorner6m01": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWindow01.SM_CastleWindow01": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWindow02.SM_CastleWindow02": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_CastleWindow03.SM_CastleWindow03": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_Door02.SM_Door02": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_Door03.SM_Door03": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_DoorFrame01.SM_DoorFrame01": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_DoorFrameCastle01.SM_DoorFrameCastle01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall01.SM_FenceWall01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall02.SM_FenceWall02": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall03.SM_FenceWall03": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall04.SM_FenceWall04": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall05.SM_FenceWall05": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_FenceWall06.SM_FenceWall06": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_Floor01.SM_Floor01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_Floor01Cave.SM_Floor01Cave": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_Floor02.SM_Floor02": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_Floor02Cave.SM_Floor02Cave": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_BrickWallCave.SM_BrickWallCave": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_Ceiling.SM_Ceiling": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_EntranceWall01.SM_EntranceWall01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceWall02.SM_EntranceWall02": 1793801072,
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Long.SM_WM00231_Warehouse_Tables_Long": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Short.SM_WM00231_Warehouse_Tables_Short": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Square.SM_WM00231_Warehouse_Tables_Square": 1792766218,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar01.SM_EntranceLargePillar01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar02.SM_EntranceLargePillar02": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar03.SM_EntranceLargePillar03": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar04.SM_EntranceLargePillar04": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar05.SM_EntranceLargePillar05": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar06.SM_EntranceLargePillar06": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar07.SM_EntranceLargePillar07": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_EntranceLargePillar08.SM_EntranceLargePillar08": 1793801072,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Box.SM_Box": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Broken_Box.SM_Broken_Box": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Broken_Crate.SM_Broken_Crate": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Destroyed_Box.SM_Destroyed_Box": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Sword_1.SM_Sword_1": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Sword_2.SM_Sword_2": 1793801731,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner.SM_DisplayFrame_Corner": 1793800189,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner_Bottom.SM_DisplayFrame_Corner_Bottom": 1793800189,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner_Top.SM_DisplayFrame_Corner_Top": 1793800189,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side.SM_DisplayFrame_Side": 1793800189,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side_Bottom.SM_DisplayFrame_Side_Bottom": 1793800189,
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side_Top.SM_DisplayFrame_Side_Top": 1793800189,
+"/Game/FantasyBundle/Meshes/SM_Canopy02.SM_Canopy02": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_Canopy04.SM_Canopy04": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_Canopy05.SM_Canopy05": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m01.SM_HouseWall3m01": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m02.SM_HouseWall3m02": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m03.SM_HouseWall3m03": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m04.SM_HouseWall3m04": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_Barrel03.SM_Barrel03": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_Barrel04.SM_Barrel04": 1793801070,
+"/Game/FantasyBundle/Meshes/SM_Sign02.SM_Sign02": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_Sign03.SM_Sign03": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_Sign04.SM_Sign04": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_Sign06.SM_Sign06": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_Sign07.SM_Sign07": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_StairsBox01.SM_StairsBox01": 1793801074,
+"/Game/FantasyBundle/Meshes/SM_StairsBox02.SM_StairsBox02": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_StairsBox03.SM_StairsBox03": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_StreetLight01.SM_StreetLight01": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_StreetLight02.SM_StreetLight02": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_StreetLight03.SM_StreetLight03": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_StreetLight04.SM_StreetLight04": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_Torch01.SM_Torch01": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_Torch02.SM_Torch02": 1793801075,
+"/Game/FantasyBundle/Meshes/SM_Torch03.SM_Torch03": 1793801075,
+"/Game/Warehouse/Assets/Props/WM00214-Pallet_Jack/SM_WM00214-Pallet_Jack.SM_WM00214-Pallet_Jack": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_1.SM_WM00215_Flat_Boxes_1": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_2.SM_WM00215_Flat_Boxes_2": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_3.SM_WM00215_Flat_Boxes_3": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_4.SM_WM00215_Flat_Boxes_4": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_5.SM_WM00215_Flat_Boxes_5": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_6.SM_WM00215_Flat_Boxes_6": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_7.SM_WM00215_Flat_Boxes_7": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_8.SM_WM00215_Flat_Boxes_8": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_04.SM_WM00216_Wrapped_Boxes_04": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_2.SM_WM00216_Wrapped_Boxes_2": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_2_Plastic.SM_WM00216_Wrapped_Boxes_2_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_3.SM_WM00216_Wrapped_Boxes_3": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_3_Plastic.SM_WM00216_Wrapped_Boxes_3_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_4_Plastic.SM_WM00216_Wrapped_Boxes_4_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_5.SM_WM00216_Wrapped_Boxes_5": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_5_Plastic.SM_WM00216_Wrapped_Boxes_5_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_6.SM_WM00216_Wrapped_Boxes_6": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_6_Plastic.SM_WM00216_Wrapped_Boxes_6_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_7.SM_WM00216_Wrapped_Boxes_7": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_7_Plastic.SM_WM00216_Wrapped_Boxes_7_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_8.SM_WM00216_Wrapped_Boxes_8": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_8_Plastic.SM_WM00216_Wrapped_Boxes_8_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_9.SM_WM00216_Wrapped_Boxes_9": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_boxes_1.SM_WM00216_Wrapped_boxes_1": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_boxes_1_Plastic.SM_WM00216_Wrapped_boxes_1_Plastic": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217-Pallet_Standard.SM_WM00217-Pallet_Standard": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217_Pallet_Small.SM_WM00217_Pallet_Small": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217_Pallet_Thin.SM_WM00217_Pallet_Thin": 1792766218,
+"/Game/Warehouse/Assets/Props/WM00218-Unwrapped_Boxes/SM_WM00218-Unwrapped_Box_Open.SM_WM00218-Unwrapped_Box_Open": 1792766218,
+"/Game/FantasyBundle/Meshes/SM_Plank3m01.SM_Plank3m01": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_Plank3m02.SM_Plank3m02": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_Planks.SM_Planks": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_Window02.SM_Window02": 1793801078,
+"/Game/FantasyBundle/Meshes/SM_Window03.SM_Window03": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_Window04.SM_Window04": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodChunks01.SM_WoodChunks01": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodChunks03.SM_WoodChunks03": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodChunks04.SM_WoodChunks04": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodChunks05.SM_WoodChunks05": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodPlank02.SM_WoodPlank02": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodPlank03.SM_WoodPlank03": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodPlank04.SM_WoodPlank04": 1793801079,
+"/Game/FantasyBundle/Meshes/SM_WoodPlank05.SM_WoodPlank05": 1793801079,
+"/Game/CustomAssets/Candles/SM_Candles_01_N1.SM_Candles_01_N1": 1793800151,
+"/Game/CustomAssets/Candles/SM_Candles_02_N1.SM_Candles_02_N1": 1793800151,
+"/Game/CustomAssets/Candles/SM_Candles_03_N1.SM_Candles_03_N1": 1793800151,
+"/Game/CustomAssets/Arch/SM_ArchTop_01_N1.SM_ArchTop_01_N1": 1793800149,
+"/Game/CustomAssets/Arch/SM_ArchWay_01_N1.SM_ArchWay_01_N1": 1793800150,
+"/Game/CustomAssets/Arch/SM_Vines_01_N1.SM_Vines_01_N1": 1793800150,
+"/Game/CustomAssets/Bells_01/SM_Bell_01_N1.SM_Bell_01_N1": 1793800150,
+"/Game/CustomAssets/Bells_02/SM_Bells_02_N1.SM_Bells_02_N1": 1793800151,
+"/Game/CustomAssets/Bells_03/SM_Bell_03_N1.SM_Bell_03_N1": 1793800151,
+"/Game/CustomAssets/BrassPlate_00/SM_BrassPlate_00_N1.SM_BrassPlate_00_N1": 1793800150,
+"/Game/CustomAssets/BrassPlate_01/SM_BrassPlate_01_N1.SM_BrassPlate_01_N1": 1793800150,
+"/Game/CustomAssets/Bridge/SM_Arch_Angled_01_N1.SM_Arch_Angled_01_N1": 1793800150,
+"/Game/CustomAssets/Bridge/SM_Arch_Angled_Split_01_N1.SM_Arch_Angled_Split_01_N1": 1793800150,
+"/Game/CustomAssets/Bridge/SM_Arch_Flat_01_N1.SM_Arch_Flat_01_N1": 1793800150,
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_01_N1.SM_BridgeColumn_01_N1": 1793800151,
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_02_Split_N1.SM_BridgeColumn_02_Split_N1": 1793800151,
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_03_N1.SM_BridgeColumn_03_N1": 1793800151,
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_CenterPiece_01_N1.SM_BridgeColumn_CenterPiece_01_N1": 1793800151,
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_TopSection_01_N1.SM_BridgeColumn_TopSection_01_N1": 1793800151,
+"/Game/CustomAssets/Bridge/SM_StairArch_01_N1.SM_StairArch_01_N1": 1793800151,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmLower_N1.SM_ArmourArmLower_N1": 1793800189,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmMiddle_N1.SM_ArmourArmMiddle_N1": 1793800189,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmUpper_N1.SM_ArmourArmUpper_N1": 1793800189,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourBodyChainmail_N1.SM_ArmourBodyChainmail_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourBody_N1.SM_ArmourBody_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegLower_N1.SM_ArmourLegLower_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegMid_N1.SM_ArmourLegMid_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegUpper_N1.SM_ArmourLegUpper_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourUnderChainmail_N1.SM_ArmourUnderChainmail_N1": 1793800190,
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_Armour_HelmetBack_N1.SM_Armour_HelmetBack_N1": 1793800190,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fish_Mackerel_Smoked_01/SM_Food_Fish_Mackerel_Smoked_01.SM_Food_Fish_Mackerel_Smoked_01": 1794123601,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_A.SM_Food_Fruit_Apple_Set_01_A": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_B.SM_Food_Fruit_Apple_Set_01_B": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_C.SM_Food_Fruit_Apple_Set_01_C": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_D.SM_Food_Fruit_Apple_Set_01_D": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_E.SM_Food_Fruit_Apple_Set_01_E": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Set_01/SM_Food_Fruit_Apple_Set_01_F.SM_Food_Fruit_Apple_Set_01_F": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Yellow_Bitten_01/SM_Food_Fruit_Apple_Yellow_Bitten_01.SM_Food_Fruit_Apple_Yellow_Bitten_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Yellow_Fresh_01/SM_Food_Fruit_Apple_Yellow_Fresh_01.SM_Food_Fruit_Apple_Yellow_Fresh_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Grape_Green_Bunch_01/SM_Food_Fruit_Grape_Green_Bunch_01.SM_Food_Fruit_Grape_Green_Bunch_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Melon_Cantaloupe_Fresh_02/SM_Food_Fruit_Melon_Cantaloupe_Fresh_02.SM_Food_Fruit_Melon_Cantaloupe_Fresh_02": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Pear_Bitten_01/SM_Food_Fruit_Pear_Bitten_01.SM_Food_Fruit_Pear_Bitten_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Beef_Smoked_01/SM_Food_Meat_Beef_Smoked_01.SM_Food_Meat_Beef_Smoked_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Beef_Smoked_02/SM_Food_Meat_Beef_Smoked_02.SM_Food_Meat_Beef_Smoked_02": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Chicken_Leg_Roasted_01/SM_Food_Meat_Chicken_Leg_Roasted_01.SM_Food_Meat_Chicken_Leg_Roasted_01": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Ring_Smoked_01/SM_Food_Meat_Sausage_Ring_Smoked_01.SM_Food_Meat_Sausage_Ring_Smoked_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Custom/His_Med_Cloth_01/SM_TableCloth.SM_TableCloth": 1794123601,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Deer_Leg_Smoked_01/SM_Food_Meat_Deer_Leg_Smoked_01.SM_Food_Meat_Deer_Leg_Smoked_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Lamb_Rack_Roasted_01/SM_Food_Meat_Lamb_Rack_Roasted_01.SM_Food_Meat_Lamb_Rack_Roasted_01": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Lamb_Ribs_Roasted_01/SM_Food_Meat_Lamb_Ribs_Roasted_01.SM_Food_Meat_Lamb_Ribs_Roasted_01": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Quail_Roasted_01/SM_Food_Meat_Quail_Roasted_01.SM_Food_Meat_Quail_Roasted_01": 1794123602,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Ring_Smoked_02/SM_Food_Meat_Sausage_Ring_Smoked_02.SM_Food_Meat_Sausage_Ring_Smoked_02": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Ring_Smoked_03/SM_Food_Meat_Sausage_Ring_Smoked_03.SM_Food_Meat_Sausage_Ring_Smoked_03": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Smoked_01/SM_Food_Meat_Sausage_Smoked_01.SM_Food_Meat_Sausage_Smoked_01": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Smoked_02/SM_Food_Meat_Sausage_Smoked_02.SM_Food_Meat_Sausage_Smoked_02": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Vegetable_Squash_Yellow_02/SM_Food_Vegetable_Squash_Yellow_02.SM_Food_Vegetable_Squash_Yellow_02": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_DoughBowl_Wood_Worn_01/SM_His_Med_Tableware_DoughBowl_Wood_Worn_01.SM_His_Med_Tableware_DoughBowl_Wood_Worn_01": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Plate_Wood_Old_01/SM_His_Med_Tableware_Plate_Wood_Old_01.SM_His_Med_Tableware_Plate_Wood_Old_01": 1794123605,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Ind_Old_Furniture_Bench_Wood_Weathered_01/SM_Ind_Old_Furniture_Bench_Wood_Weathered_01.SM_Ind_Old_Furniture_Bench_Wood_Weathered_01": 1794123605,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Ind_Old_Furniture_Table_Wood_Old_01/SM_Ind_Old_Furniture_Table_Wood_Old_01.SM_Ind_Old_Furniture_Table_Wood_Old_01": 1794123605,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Rur_Tableware_Bowl_Wood_Rustic_01/SM_Res_Rur_Tableware_Bowl_Wood_Rustic_01.SM_Res_Rur_Tableware_Bowl_Wood_Rustic_01": 1794123606,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Vegetable_Carrot_Fresh_01/SM_Food_Vegetable_Carrot_Fresh_01.SM_Food_Vegetable_Carrot_Fresh_01": 1794123603,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Decoration_CandleStand_Metal_Old_01/SM_His_Med_Decoration_CandleStand_Metal_Old_01.SM_His_Med_Decoration_CandleStand_Metal_Old_01": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Decoration_Candle_Wax_Old_01/SM_His_Med_Decoration_Candle_Wax_Old_01.SM_His_Med_Decoration_Candle_Wax_Old_01": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Cup_Wood_Old_01/SM_Tableware_Cup_Wood_Old_01.SM_Tableware_Cup_Wood_Old_01": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Cup_Wood_Old_02/SM_His_Med_Tableware_Cup_Wood_Old_02.SM_His_Med_Tableware_Cup_Wood_Old_02": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Plate_Metal_Old_01/SM_His_Med_Tableware_Plate_Metal_Old_01.SM_His_Med_Tableware_Plate_Metal_Old_01": 1794123604,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Spoon_Wood_Clean_01/SM_His_Med_Tableware_Spoon_Wood_Clean_01.SM_His_Med_Tableware_Spoon_Wood_Clean_01": 1794123605,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Fur_Chair_Wood_Old_02/SM_Res_Fur_Chair_Wood_Old_02.SM_Res_Fur_Chair_Wood_Old_02": 1794123605,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Rur_Tableware_Bowl_Wood_S_01/SM_Res_Rur_Tableware_Bowl_Wood_S_01.SM_Res_Rur_Tableware_Bowl_Wood_S_01": 1794123606,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Broken_Chair.SM_Broken_Chair": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Candle.SM_Candle": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Chair.SM_Chair": 1793801731,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m05.SM_HouseWall3m05": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m06.SM_HouseWall3m06": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m07.SM_HouseWall3m07": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall3m08.SM_HouseWall3m08": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall6m01.SM_HouseWall6m01": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall6m02.SM_HouseWall6m02": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall6m03.SM_HouseWall6m03": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_HouseWall6m04.SM_HouseWall6m04": 1793801073
 },
 "/Game/FantasyBundle/Meshes/SM_FlagPole01.SM_FlagPole01": [
 -237.7,
@@ -2004,5 +2204,749 @@
 400,
 400,
 0
+],
+"/Game/FantasyBundle/Meshes/SM_BrickWallCave.SM_BrickWallCave": [
+-600,
+-0.0,
+-600,
+600,
+50.0,
+600
+],
+"/Game/FantasyBundle/Meshes/SM_Ceiling.SM_Ceiling": [
+-598.9,
+-598.8,
+-52.3,
+598.9,
+598.8,
+52.3
+],
+"/Game/FantasyBundle/Meshes/SM_EntranceWall01.SM_EntranceWall01": [
+-216.1,
+-310.2,
+-8.0,
+216.1,
+310.2,
+1073.5
+],
+"/Game/FantasyBundle/Meshes/SM_EntranceWall02.SM_EntranceWall02": [
+-236.2,
+-306.5,
+-5.4,
+236.2,
+306.5,
+1063.5
+],
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Long.SM_WM00231_Warehouse_Tables_Long": [
+-150.8,
+-54.5,
+-0.5,
+150.4,
+50.0,
+90.0
+],
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Short.SM_WM00231_Warehouse_Tables_Short": [
+-100.0,
+-54.0,
+-0.1,
+100.0,
+50.1,
+90.0
+],
+"/Game/Warehouse/Assets/Props/WM00231_Warehouse_Tables/SM_WM00231_Warehouse_Tables_Square.SM_WM00231_Warehouse_Tables_Square": [
+-51.2,
+-54.0,
+-0.1,
+49.9,
+50.0,
+90.0
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Sword_1.SM_Sword_1": [
+-11.8,
+-1.9,
+-0.0,
+11.8,
+1.9,
+124.6
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Sword_2.SM_Sword_2": [
+-11.8,
+-1.4,
+-0.0,
+11.9,
+2.4,
+107.3
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner.SM_DisplayFrame_Corner": [
+0.1,
+-0.0,
+-0.0,
+29.8,
+60.7,
+60.7
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner_Bottom.SM_DisplayFrame_Corner_Bottom": [
+0.1,
+-0.0,
+-0.0,
+29.8,
+57.9,
+57.9
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Corner_Top.SM_DisplayFrame_Corner_Top": [
+0.1,
+-0.0,
+-0.0,
+1.0,
+60.7,
+60.7
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side.SM_DisplayFrame_Side": [
+0.0,
+-100.3,
+38.0,
+29.8,
+100.3,
+60.7
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side_Bottom.SM_DisplayFrame_Side_Bottom": [
+0.0,
+-100,
+40.9,
+29.8,
+100,
+57.9
+],
+"/Game/AssetZoo/DemoRoom/Meshes/SM_DisplayFrame_Side_Top.SM_DisplayFrame_Side_Top": [
+0.0,
+-100,
+38.0,
+1.0,
+100,
+60.7
+],
+"/Game/Warehouse/Assets/Props/WM00214-Pallet_Jack/SM_WM00214-Pallet_Jack.SM_WM00214-Pallet_Jack": [
+-33.5,
+-49.2,
+-0.3,
+33.5,
+96.1,
+122.8
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_1.SM_WM00215_Flat_Boxes_1": [
+-31.4,
+-50.7,
+0.4,
+32.1,
+51.0,
+42.0
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_2.SM_WM00215_Flat_Boxes_2": [
+-31.3,
+-49.4,
+-0.0,
+34.7,
+52.1,
+37.7
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_3.SM_WM00215_Flat_Boxes_3": [
+-33.0,
+-50.7,
+-0.0,
+33.0,
+50.8,
+7.6
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_4.SM_WM00215_Flat_Boxes_4": [
+-59.7,
+-50.7,
+-0.0,
+59.8,
+50.7,
+7.6
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_5.SM_WM00215_Flat_Boxes_5": [
+-32.9,
+-53.5,
+-0.0,
+33.1,
+47.9,
+60.9
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_6.SM_WM00215_Flat_Boxes_6": [
+-61.6,
+-53.0,
+-0.0,
+60.3,
+48.5,
+67.4
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_7.SM_WM00215_Flat_Boxes_7": [
+-54.9,
+-50.5,
+-0.0,
+64.6,
+51.0,
+32.7
+],
+"/Game/Warehouse/Assets/Props/WM00215_Flat_Boxes/SM_WM00215_Flat_Boxes_8.SM_WM00215_Flat_Boxes_8": [
+-60.1,
+-51.0,
+-0.0,
+59.5,
+50.5,
+80.1
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_04.SM_WM00216_Wrapped_Boxes_04": [
+-64.2,
+-50.6,
+-0.8,
+62.2,
+50.9,
+123.1
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_2.SM_WM00216_Wrapped_Boxes_2": [
+-64.2,
+-50.6,
+-0.8,
+62.2,
+50.9,
+123.1
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_2_Plastic.SM_WM00216_Wrapped_Boxes_2_Plastic": [
+-64.9,
+-51.7,
+3.5,
+62.9,
+51.6,
+123.6
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_3.SM_WM00216_Wrapped_Boxes_3": [
+-60.7,
+-50.6,
+-0.0,
+61.4,
+50.9,
+124.3
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_3_Plastic.SM_WM00216_Wrapped_Boxes_3_Plastic": [
+-61.2,
+-51.2,
+3.2,
+61.8,
+51.5,
+125.6
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_4_Plastic.SM_WM00216_Wrapped_Boxes_4_Plastic": [
+-64.3,
+-50.9,
+10.1,
+62.6,
+51.3,
+123.4
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_5.SM_WM00216_Wrapped_Boxes_5": [
+-60.7,
+-51.0,
+-0.1,
+61.4,
+50.6,
+122.4
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_5_Plastic.SM_WM00216_Wrapped_Boxes_5_Plastic": [
+-60.7,
+-51.2,
+2.3,
+61.6,
+50.7,
+120.8
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_6.SM_WM00216_Wrapped_Boxes_6": [
+-33.7,
+-50.1,
+-0.0,
+32.5,
+51.6,
+83.1
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_6_Plastic.SM_WM00216_Wrapped_Boxes_6_Plastic": [
+-34.6,
+-51.4,
+4.6,
+33.3,
+52.2,
+83.4
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_7.SM_WM00216_Wrapped_Boxes_7": [
+-61.9,
+-51.5,
+0.0,
+61.2,
+50.4,
+122.4
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_7_Plastic.SM_WM00216_Wrapped_Boxes_7_Plastic": [
+-62.2,
+-52.0,
+3.7,
+61.5,
+50.8,
+122.7
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_8.SM_WM00216_Wrapped_Boxes_8": [
+-36.0,
+-51.0,
+-0.8,
+36.0,
+50.7,
+85.6
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_8_Plastic.SM_WM00216_Wrapped_Boxes_8_Plastic": [
+-37.1,
+-52.0,
+1.9,
+36.9,
+51.6,
+85.8
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_Boxes_9.SM_WM00216_Wrapped_Boxes_9": [
+-32.9,
+-51.0,
+-0.0,
+32.1,
+50.9,
+78.8
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_boxes_1.SM_WM00216_Wrapped_boxes_1": [
+-64.2,
+-50.6,
+-0.8,
+62.2,
+50.9,
+123.1
+],
+"/Game/Warehouse/Assets/Props/WM00216-Wrapped_Boxes/SM_WM00216_Wrapped_boxes_1_Plastic.SM_WM00216_Wrapped_boxes_1_Plastic": [
+-64.9,
+-51.5,
+3.5,
+62.9,
+51.6,
+123.6
+],
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217-Pallet_Standard.SM_WM00217-Pallet_Standard": [
+-60.8,
+-50.4,
+-0.1,
+60.7,
+50.7,
+17.1
+],
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217_Pallet_Small.SM_WM00217_Pallet_Small": [
+-34.1,
+-50.4,
+-0.1,
+34.2,
+50.6,
+17.2
+],
+"/Game/Warehouse/Assets/Props/WM00217_Pallet/SM_WM00217_Pallet_Thin.SM_WM00217_Pallet_Thin": [
+-60.8,
+-50.4,
+0.2,
+61.2,
+50.6,
+5.2
+],
+"/Game/Warehouse/Assets/Props/WM00218-Unwrapped_Boxes/SM_WM00218-Unwrapped_Box_Open.SM_WM00218-Unwrapped_Box_Open": [
+-33.6,
+-52.2,
+-0.3,
+32.4,
+50.0,
+82.3
+],
+"/Game/CustomAssets/Arch/SM_ArchTop_01_N1.SM_ArchTop_01_N1": [
+6604.2,
+-65.9,
+3704.6,
+8204.4,
+816.8,
+4044.4
+],
+"/Game/CustomAssets/Arch/SM_ArchWay_01_N1.SM_ArchWay_01_N1": [
+6507.8,
+-170.8,
+2300.3,
+8324.1,
+893.4,
+4293.9
+],
+"/Game/CustomAssets/Arch/SM_Vines_01_N1.SM_Vines_01_N1": [
+-382.0,
+-313.8,
+-889.7,
+381.9,
+314.6,
+890.6
+],
+"/Game/CustomAssets/Bells_01/SM_Bell_01_N1.SM_Bell_01_N1": [
+-7.4,
+-5.7,
+-16.6,
+7.4,
+5.8,
+1.6
+],
+"/Game/CustomAssets/Bells_02/SM_Bells_02_N1.SM_Bells_02_N1": [
+-3.9,
+-3.9,
+-7.4,
+3.9,
+3.9,
+1.3
+],
+"/Game/CustomAssets/Bells_03/SM_Bell_03_N1.SM_Bell_03_N1": [
+-4.4,
+-4.4,
+-11.9,
+4.4,
+4.4,
+1.4
+],
+"/Game/CustomAssets/BrassPlate_00/SM_BrassPlate_00_N1.SM_BrassPlate_00_N1": [
+-111.4,
+-111.5,
+-4.4,
+111.4,
+111.5,
+7.7
+],
+"/Game/CustomAssets/BrassPlate_01/SM_BrassPlate_01_N1.SM_BrassPlate_01_N1": [
+-111.6,
+-111.6,
+-4.2,
+111.6,
+111.6,
+6.2
+],
+"/Game/CustomAssets/Bridge/SM_Arch_Angled_01_N1.SM_Arch_Angled_01_N1": [
+-222.2,
+-645.2,
+-375.4,
+222.1,
+574.9,
+1622.5
+],
+"/Game/CustomAssets/Bridge/SM_Arch_Angled_Split_01_N1.SM_Arch_Angled_Split_01_N1": [
+-0.0,
+-644.5,
+-375.4,
+222.1,
+574.9,
+1620.5
+],
+"/Game/CustomAssets/Bridge/SM_Arch_Flat_01_N1.SM_Arch_Flat_01_N1": [
+-222.2,
+-645.2,
+-37.4,
+222.1,
+574.9,
+1589.1
+],
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_01_N1.SM_BridgeColumn_01_N1": [
+-1217.5,
+-467.1,
+-3629.0,
+1061.6,
+514.5,
+3665.2
+],
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_02_Split_N1.SM_BridgeColumn_02_Split_N1": [
+-459.3,
+-315.8,
+-3642.9,
+459.3,
+315.8,
+355.5
+],
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_03_N1.SM_BridgeColumn_03_N1": [
+-1249.8,
+-232.4,
+765.8,
+1083.2,
+231.2,
+3671.1
+],
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_CenterPiece_01_N1.SM_BridgeColumn_CenterPiece_01_N1": [
+-263.2,
+-248.6,
+0,
+263.2,
+248.6,
+1612.5
+],
+"/Game/CustomAssets/Bridge/SM_BridgeColumn_TopSection_01_N1.SM_BridgeColumn_TopSection_01_N1": [
+-1138.5,
+-489.3,
+1981.0,
+1138.5,
+489.3,
+3640.6
+],
+"/Game/CustomAssets/Bridge/SM_StairArch_01_N1.SM_StairArch_01_N1": [
+-4229.2,
+-182.6,
+-582.6,
+4229.2,
+171.2,
+111.4
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmLower_N1.SM_ArmourArmLower_N1": [
+0.4,
+-2.7,
+-19.2,
+15.6,
+11.9,
+-1.8
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmMiddle_N1.SM_ArmourArmMiddle_N1": [
+-10.8,
+-10.8,
+-6.9,
+8.0,
+8.0,
+11.8
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourArmUpper_N1.SM_ArmourArmUpper_N1": [
+1.3,
+-9.7,
+-14.0,
+16.4,
+9.1,
+3.9
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourBodyChainmail_N1.SM_ArmourBodyChainmail_N1": [
+5480.6,
+-1419.7,
+2590.4,
+5590.7,
+-1286.6,
+2660.8
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourBody_N1.SM_ArmourBody_N1": [
+-16.9,
+-16.9,
+-20.2,
+16.9,
+16.9,
+20.2
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegLower_N1.SM_ArmourLegLower_N1": [
+-6.2,
+-10.1,
+-49.1,
+12.8,
+9.4,
+0.4
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegMid_N1.SM_ArmourLegMid_N1": [
+-3.8,
+-8.2,
+-8.5,
+12.0,
+16.6,
+13.4
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourLegUpper_N1.SM_ArmourLegUpper_N1": [
+-4.1,
+1.7,
+-35.1,
+15.0,
+15.8,
+1.3
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_ArmourUnderChainmail_N1.SM_ArmourUnderChainmail_N1": [
+5502.4,
+-1418.1,
+2594.9,
+5589.5,
+-1321.6,
+2659.5
+],
+"/Game/CustomAssets/Characters/FallenSoldier/Armour/SM_Armour_HelmetBack_N1.SM_Armour_HelmetBack_N1": [
+-9.0,
+-12.3,
+-6.9,
+9.0,
+6.0,
+17.0
+],
+"/Game/Scene_Banquet/Assets/Custom/His_Med_Cloth_01/SM_TableCloth.SM_TableCloth": [
+-174.3,
+-15.2,
+-19.2,
+172.1,
+15.2,
+0.6
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Deer_Leg_Smoked_01/SM_Food_Meat_Deer_Leg_Smoked_01.SM_Food_Meat_Deer_Leg_Smoked_01": [
+-34.8,
+-10.1,
+-3.3,
+14.8,
+9.0,
+7.8
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Lamb_Rack_Roasted_01/SM_Food_Meat_Lamb_Rack_Roasted_01.SM_Food_Meat_Lamb_Rack_Roasted_01": [
+-8.8,
+-7.4,
+-0.3,
+11.6,
+11.2,
+10.8
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Lamb_Ribs_Roasted_01/SM_Food_Meat_Lamb_Ribs_Roasted_01.SM_Food_Meat_Lamb_Ribs_Roasted_01": [
+-6.5,
+-3.4,
+-0.1,
+8.0,
+2.9,
+4.7
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Quail_Roasted_01/SM_Food_Meat_Quail_Roasted_01.SM_Food_Meat_Quail_Roasted_01": [
+-9.8,
+-5.3,
+-0.0,
+8.8,
+4.6,
+8.0
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Ring_Smoked_02/SM_Food_Meat_Sausage_Ring_Smoked_02.SM_Food_Meat_Sausage_Ring_Smoked_02": [
+-5.1,
+-2.5,
+-18.5,
+5.3,
+2.3,
+0.9
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Ring_Smoked_03/SM_Food_Meat_Sausage_Ring_Smoked_03.SM_Food_Meat_Sausage_Ring_Smoked_03": [
+-5.7,
+-2.5,
+-30.4,
+5.6,
+2.5,
+0.8
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Smoked_01/SM_Food_Meat_Sausage_Smoked_01.SM_Food_Meat_Sausage_Smoked_01": [
+-6.1,
+-2.1,
+-1.6,
+6.1,
+2.1,
+1.6
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Meat_Sausage_Smoked_02/SM_Food_Meat_Sausage_Smoked_02.SM_Food_Meat_Sausage_Smoked_02": [
+-2.9,
+-2.0,
+-0.6,
+2.9,
+2.0,
+0.8
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Vegetable_Carrot_Fresh_01/SM_Food_Vegetable_Carrot_Fresh_01.SM_Food_Vegetable_Carrot_Fresh_01": [
+-10.5,
+-1.7,
+-1.8,
+10.5,
+1.7,
+1.8
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Decoration_CandleStand_Metal_Old_01/SM_His_Med_Decoration_CandleStand_Metal_Old_01.SM_His_Med_Decoration_CandleStand_Metal_Old_01": [
+-8,
+-6.9,
+-0.2,
+8,
+8.4,
+15.2
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Decoration_Candle_Wax_Old_01/SM_His_Med_Decoration_Candle_Wax_Old_01.SM_His_Med_Decoration_Candle_Wax_Old_01": [
+-4.2,
+-3.9,
+-0.0,
+4.2,
+4.2,
+25.5
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Cup_Wood_Old_01/SM_Tableware_Cup_Wood_Old_01.SM_Tableware_Cup_Wood_Old_01": [
+-3.7,
+-3.7,
+-0.0,
+3.7,
+3.7,
+14.9
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Cup_Wood_Old_02/SM_His_Med_Tableware_Cup_Wood_Old_02.SM_His_Med_Tableware_Cup_Wood_Old_02": [
+-8.7,
+-6.3,
+-0.1,
+10.5,
+5.5,
+18.0
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Plate_Metal_Old_01/SM_His_Med_Tableware_Plate_Metal_Old_01.SM_His_Med_Tableware_Plate_Metal_Old_01": [
+-10.8,
+-10.8,
+-0.0,
+10.9,
+11.0,
+2.3
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/His_Med_Tableware_Spoon_Wood_Clean_01/SM_His_Med_Tableware_Spoon_Wood_Clean_01.SM_His_Med_Tableware_Spoon_Wood_Clean_01": [
+-9.0,
+-2.3,
+-1.4,
+9.0,
+2.3,
+1.4
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Fur_Chair_Wood_Old_02/SM_Res_Fur_Chair_Wood_Old_02.SM_Res_Fur_Chair_Wood_Old_02": [
+-24.0,
+-25.1,
+-0.5,
+24.2,
+23.8,
+89.4
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Rur_Tableware_Bowl_Wood_S_01/SM_Res_Rur_Tableware_Bowl_Wood_S_01.SM_Res_Rur_Tableware_Bowl_Wood_S_01": [
+-6.5,
+-6.4,
+-0.2,
+6.5,
+6.6,
+5.3
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Broken_Chair.SM_Broken_Chair": [
+-95.7,
+-29.1,
+-0.1,
+67.0,
+46.8,
+57.1
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Candle.SM_Candle": [
+-10.6,
+-10.5,
+-0.0,
+15.1,
+10.6,
+32.6
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Chair.SM_Chair": [
+-1.3,
+-57.6,
+0.0,
+55.2,
+0.0,
+127.4
 ]
 }

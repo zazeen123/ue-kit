@@ -1,4 +1,4 @@
-"""Claude's house designs for MyHeadLine (FantasyBundle kit), built with ue-kit.
+﻿"""Claude's house designs for MyHeadLine (FantasyBundle kit), built with ue-kit.
 python designs_claude.py [dry|build] [name ...]"""
 import sys
 
@@ -137,6 +137,7 @@ if __name__ == "__main__":
     for n in names:
         folder = "/Game/ARPG/Environment/Town" if n == "BP_GatefallHouse" else FOLDER
         r = server.build_blueprint(n, D[n], folder=folder, dry_run=(mode == "dry"))
+        r = r[0] if isinstance(r, list) else r          # a clean build also returns the photo sheet
         head = r.split("\n")[0 if mode == "dry" else 1]
         print(f"=== {n}: {head}")
         print(r[r.index("ISSUES"):])

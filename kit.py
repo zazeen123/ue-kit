@@ -424,12 +424,71 @@ def is_shell(p):
 WALK_IN = re.compile(r"House\w*Floor", re.I)      # modules a player walks into: these need a door
 
 
+class Issues(list):
+    """The issue texts, plus .fixes for the ones with a single mechanical remedy (see autofix)."""
+
+    def __init__(self, *a):
+        super().__init__(*a)
+        self.fixes = []
+
+
+def autofix(parts, rounds=4):
+    """Applies the fixes that have only one answer - a roof that does not cover its walls gets `cover`, a part
+    a little above its support is set down, a sunk part is raised, steps are shortened to the door sill or
+    removed when the sill is at ground level - and re-checks, up to `rounds` times.
+    Returns (new parts, notes). Everything else (overlaps, overhangs, doors in solid walls, stretching) needs
+    a design decision and is left alone."""
+    parts = json.loads(json.dumps(parts))
+    notes = []
+    for _ in range(rounds):
+        fixes = check(resolve(parts)).fixes
+        if not fixes:
+            break
+        by = {p["name"]: p for p in parts}
+        done = set()
+        for op, name, val in fixes:
+            p = by.get(name)
+            if p is None or (op, name) in done:
+                continue
+            done.add((op, name))
+            if op in ("raise", "lower"):
+                off = _vec(p.get("offset"), (0, 0, 0))
+                off[2] = round(off[2] + (val if op == "raise" else -val), 1)
+                p["offset"] = off
+                notes.append(f"{name}: moved {'up' if op == 'raise' else 'down'} {val:.0f} cm (offset z = {off[2]:.0f})")
+            elif op == "cover":
+                order = [q["name"] for q in parts]
+                if order.index(val) > order.index(name):
+                    continue                        # a part can only refer to an earlier one
+                old, _, margin = (p.get("cover") or "").partition(":")
+                names = [n for n in old.split("+") if n]
+                for _op, _n, v in fixes:            # every wall this roof misses, in one go
+                    if _op == "cover" and _n == name and v not in names and order.index(v) < order.index(name):
+                        names.append(v)
+                p["cover"] = "+".join(sorted(names, key=order.index)) + ":" + (margin or "40")
+                if isinstance(p.get("scale"), (int, float)):
+                    p.pop("scale")
+                notes.append(f"{name}: cover = \"{p['cover']}\" (scaled to overhang the walls)")
+            elif op == "scale_z":
+                sc = _vec(p.get("scale"), (1, 1, 1))
+                sc[2] = round(sc[2] * val, 3)
+                p["scale"] = sc
+                notes.append(f"{name}: scale z = {sc[2]} (top now meets the door sill)")
+            elif op == "remove":
+                if any(name in re.split(r"[:+]", str(q.get(k, ""))) for q in parts for k in ("place", "cover")):
+                    continue
+                parts.remove(p)
+                notes.append(f"{name}: removed (the door sill is at ground level)")
+    return parts, notes
+
+
 def check(resolved, measure=False):
     """Problems a human would see in a picture, found from the boxes. Returns a list of strings.
     measure=True lets the doorway checks measure a mesh that is not cached yet (test map only); otherwise
     such a mesh gives one note saying how to get it measured."""
     resolved = [p for p in resolved if not p.get("light")]
-    issues = []
+    issues = Issues()
+    fix = issues.fixes.append        # (op, part, value): the problems that have exactly one remedy
     unmeasured = []
 
     def _openings(mesh):
@@ -445,6 +504,7 @@ def check(resolved, measure=False):
         bottom = b[2]
         if bottom < -10:
             issues.append(f"SUNK: {p['name']} goes {-bottom:.0f} cm below the ground")
+            fix(("raise", p["name"], -bottom))
             continue
         if bottom <= 5:
             continue
@@ -455,6 +515,8 @@ def check(resolved, measure=False):
             top = max([q["box"][5] for q in below], default=0.0)
             what = max(below, key=lambda q: q["box"][5])["name"] if below else "the ground"
             issues.append(f"FLOATING: {p['name']} bottom is {bottom - top:.0f} cm above {what}")
+            if below and bottom - top <= 60:          # a small gap over a real support: set it down
+                fix(("lower", p["name"], bottom - top))
     shells = [p for p in resolved if is_shell(p)]
     side_roof = re.compile(r"porch|awning|canopy|lean", re.I)
     for r in (p for p in resolved if "roof" in p["name"].lower() and not side_roof.search(p["name"])):
@@ -473,11 +535,13 @@ def check(resolved, measure=False):
             if short:
                 issues.append(f"ROOF TOO SMALL: {r['name']} does not cover {s['name']} on " + ", ".join(short)
                               + " (use cover:" + s["name"] + ")")
+                fix(("cover", r["name"], s["name"]))
         below = [s for s in shells if _overlap_xy(rb, s["box"], 20) and s["box"][5] <= rb[2] + 60]
         if below:
             top = max(s["box"][5] for s in below)
             if rb[2] > top + 15:
                 issues.append(f"FLOATING ROOF: {r['name']} starts {rb[2] - top:.0f} cm above the walls under it")
+                fix(("lower", r["name"], rb[2] - top))
         elif shells:
             issues.append(f"FLOATING ROOF: {r['name']} has no walls/floors under it (name wall parts *Floor/*Wall)")
     # Two big parts filling the same space (e.g. an "upper" module left on the ground inside the ground floor).
@@ -578,9 +642,12 @@ def check(resolved, measure=False):
             if sill <= 5:
                 issues.append(f"STEPS NOT NEEDED: {st['name']} leads to {near[0]['name']}, whose sill is at ground "
                               f"level - remove the steps (they only block the doorway)")
+                fix(("remove", st["name"], 0))
             elif st["box"][5] > sill + 30:
                 issues.append(f"STEPS TOO TALL: {st['name']} rises to {st['box'][5]:.0f} cm but {near[0]['name']}'s "
                               f"sill is at {sill:.0f} cm - scale its Z so the top meets the sill")
+                if st["box"][5] - st["box"][2] > 1 and sill - st["box"][2] > 5:
+                    fix(("scale_z", st["name"], (sill - st["box"][2]) / (st["box"][5] - st["box"][2])))
     # Doorways on upper storeys open into thin air.
     for p in resolved:
         if not is_shell(p) or p["box"][2] < 150:
@@ -927,6 +994,72 @@ def check_designs(names=None):
         lines.append(f"{n}: " + ("ok" if not issues else f"{len(issues)} issue(s)"))
         lines.extend("   - " + i for i in issues)
     return f"{len(todo)} design(s), {bad} with issues\n" + "\n".join(lines)
+
+
+def get_design(name=""):
+    """The parts of a built design as JSON text, ready to edit and send back to build_blueprint; with no
+    name, the list of designs on file."""
+    d = designs()
+    if not name:
+        return f"{len(d)} design(s) on file: " + ", ".join(sorted(d))
+    if name not in d:
+        near = [n for n in sorted(d) if name.lower().replace("bp_", "") in n.lower()]
+        return f"no design named {name!r} on file" + (f" - did you mean: {', '.join(near[:6])}?" if near else "")
+    e = d[name]
+    note = ""
+    if all(p.get("place") == "at" for p in e["parts"]):
+        note = ("\nNOTE these parts were read back from the built copy, so every part is placed with \"at\" (exact "
+                "coordinates). To change the shape, re-place the parts you touch with on:/against:/flush:.")
+    return (f"{name} - folder {e.get('folder')}, built {e.get('built')}, {len(e['parts'])} parts, "
+            f"issues at build: {len(e.get('issues') or [])}{note}\n" + json.dumps(e["parts"], ensure_ascii=False))
+
+
+def kit_notes(folder, query=""):
+    """Writes a markdown summary of a mesh folder - sizes, pivots, known doorways, and which wall/floor
+    modules stack on which - so a new asset pack can be used without measuring by hand. Read-only in the
+    editor (doorways come from the cache only). Returns (text, path)."""
+    paths = list_meshes(folder, query)
+    if not paths:
+        return f"no SM_* meshes matching {query!r} under {folder}", None
+    bm = bounds(paths)
+    oc = _read_json(OPEN_CACHE)
+    fam = {}
+    for p in paths:
+        short = p.rsplit("/", 1)[-1].split(".")[0]
+        fam.setdefault(re.sub(r"[_\d]+$", "", short), []).append((short, p))
+    pack = folder.strip("/").split("/")[1] if folder.count("/") >= 2 else folder.strip("/")
+    lines = [f"# {pack} kit notes (generated by ue-kit)", "",
+             f"{len(paths)} meshes under `{folder}`" + (f" matching `{query}`" if query else "")
+             + ". Sizes in cm, X x Y x Z, measured in the editor.", ""]
+    for f in sorted(fam):
+        lines += [f"## {f.replace('SM_', '')}", "", "| Mesh | Size | Pivot | Doorways |", "|---|---|---|---|"]
+        for short, p in fam[f]:
+            b = bm[p]
+            door = opening_note(oc[p]).replace("doorways: ", "") if p in oc else "not measured"
+            lines.append(f"| `{short}` | {b[3]-b[0]:.0f} x {b[4]-b[1]:.0f} x {b[5]-b[2]:.0f} | {pivot_note(b)} | {door} |")
+        lines.append("")
+    shells = [(p.rsplit("/", 1)[-1].split(".")[0], bm[p]) for p in paths
+              if SHELL_MESH.search(p.rsplit("/", 1)[-1].replace("SM_", "")) and "Roof" not in p
+              and bm[p][3] - bm[p][0] >= 200 and bm[p][4] - bm[p][1] >= 200]
+    if 1 < len(shells) <= 40:
+        lines += ["## What stacks on what", "",
+                  "A module fits on another when neither is more than 75 cm wider on any side (the OVERHANG / "
+                  "LEDGE checks). Sizes compared as placed, both centred.", ""]
+        for top, tb in shells:
+            fits = [low for low, lb in shells if low != top
+                    and abs((tb[3] - tb[0]) - (lb[3] - lb[0])) / 2 <= 75 and abs((tb[4] - tb[1]) - (lb[4] - lb[1])) / 2 <= 75]
+            lines.append(f"- `{top}` fits on: " + (", ".join(f"`{x}`" for x in fits) if fits else "nothing in this folder"))
+        lines.append("")
+    os.makedirs(OUT, exist_ok=True)
+    out = os.path.join(OUT, f"KIT_{pack}_auto.md")
+    with open(out, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(lines))
+    unmeasured = sum(1 for p in paths if p not in oc)
+    text = (f"wrote {out}: {len(paths)} meshes in {len(fam)} families"
+            + (f", stacking table for {len(shells)} wall/floor modules" if 1 < len(shells) <= 40 else "")
+            + (f". Doorways are not measured for {unmeasured} of them (kit_parts(..., doorways=True) in a test map "
+               f"measures the ones you need)." if unmeasured else "."))
+    return text, out
 
 
 # ---------------------------------------------------------------- changing the level (test maps only)

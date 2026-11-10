@@ -32,6 +32,8 @@ from PIL import Image  # noqa: E402
 import importlib  # noqa: E402
 
 import kit  # noqa: E402
+import shots  # noqa: E402
+import town  # noqa: E402
 import ue_client as ue  # noqa: E402
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -39,18 +41,25 @@ _MTIMES = {}
 
 
 def _fresh():
-    """Reload kit.py / ue_client.py when they changed on disk, so a long-lived server (e.g. started by the
+    """Reload the logic modules when they changed on disk, so a long-lived server (e.g. started by the
     Hermes desktop gateway) never runs stale checks. Changes to server.py itself still need a restart."""
-    global kit, ue
+    global kit, ue, shots, town
     changed = False
-    for name in ("ue_client.py", "kit.py"):
+    for name in ("ue_client.py", "kit.py", "shots.py", "town.py"):
         m = os.path.getmtime(os.path.join(HERE, name))
         if _MTIMES.get(name, m) != m:
             changed = True
         _MTIMES[name] = m
-    if changed:
+    if changed:                                   # dependency order: each later module imports the earlier ones
         ue = importlib.reload(ue)
         kit = importlib.reload(kit)
+        shots = importlib.reload(shots)
+        town = importlib.reload(town)
+
+
+def _img(text, path):
+    """A tool result with the picture attached when there is one."""
+    return [text, MCPImage(path=path)] if path else [text]
 
 
 _fresh()
@@ -122,37 +131,19 @@ def kit_parts(query: str = "", folder: str = "/Game/FantasyBundle/Meshes", limit
 
 
 @mcp.tool()
-def kit_pictures(meshes: list[str], sheet_name: str = "parts") -> str:
+def kit_pictures(meshes: list[str], sheet_name: str = "parts"):
     """Render thumbnails of up to 8 meshes (names like "SM_HouseRoof01" or full /Game paths) into ONE PNG
-    sheet, left to right in the given order. Returns the PNG path - open it with your vision tool to see
-    what each part looks like (e.g. which side has the door opening)."""
+    sheet; each picture has its mesh name written under it. The sheet is attached and its path returned -
+    look at it to see what each part is like (e.g. which side has the door opening)."""
     _fresh()
     if not isinstance(meshes, list) or not meshes or not all(isinstance(m, str) and m.strip() for m in meshes):
         return "ERROR meshes must be a list of 1-8 mesh names, e.g. [\"SM_HouseRoof01\", \"SM_Door01\"]"
-    meshes = meshes[:8]
-    ims = []
-    for m in meshes:
-        path = kit.full_path(m).split(".")[0]
-        f = os.path.join(OUT, f"thumb_{path.rsplit('/', 1)[-1]}.png")
-        try:
-            ue.save_png(ue.call(APP, "CaptureAssetImage", {"assetPath": path}), f)
-        except ue.UEError as e:
-            return f"ERROR no picture of {m}: {str(e)[:200]} - check the name with kit_parts"
-        ims.append(Image.open(f).convert("RGB"))
-    w = sum(i.width for i in ims)
-    sheet = Image.new("RGB", (w, max(i.height for i in ims)))
-    x = 0
-    for i in ims:
-        sheet.paste(i, (x, 0))
-        x += i.width
-    out = os.path.join(OUT, f"{sheet_name}_sheet.png")
-    sheet.save(out)
-    return f"saved {out} - left to right: " + ", ".join(m.rsplit('/', 1)[-1] for m in meshes)
+    return _img(*shots.thumbs(meshes[:8], sheet_name))
 
 
 @mcp.tool()
 def build_blueprint(name: str, parts: list[dict], folder: str = "/Game/ARPG/_Sandbox",
-                    test_location: list[float] | None = None, dry_run: bool = False) -> str:
+                    test_location: list[float] | None = None, dry_run: bool = False, autofix: bool = False):
     """Build (or rebuild) an Actor Blueprint from static-mesh parts placed RELATIVE to each other, save it,
     and spawn one test copy (label <name>_Test) at test_location (default: this Blueprint's own free spot
     in a row outside the town, so different Blueprints never overlap). Returns a parts table and an ISSUES list -
@@ -180,16 +171,23 @@ def build_blueprint(name: str, parts: list[dict], folder: str = "/Game/ARPG/_San
     Interiors: "place": "inside:<module>" sets a prop on that module's floor (counter, shelves, crates, goods).
     dry_run=True only computes and checks (fast, nothing changes in the editor).
     folder must stay under /Game/ARPG/_Sandbox (leave it out); an existing Blueprint is only replaced if
-    ue-kit built it. A door is only demanded when the design has a walk-in house module."""
+    ue-kit built it. A door is only demanded when the design has a walk-in house module.
+    autofix=True repairs the issues that have one answer (roof not covering its walls, a part a little above
+    or below where it rests, steps taller than the door sill) and prints the corrected parts - use THOSE
+    parts from then on. When a real build has no issues at all, the photo sheet of the test copy is attached,
+    so you can answer the look questions straight away."""
     _fresh()
     folder = (folder or "").rstrip("/")
     bad = kit.validate_parts(parts) or kit.build_allowed(name, folder)
     if bad:
         return f"ERROR {bad}"
     level = ""
+    fixed = []
     try:
         if not dry_run:
             level = kit.current_level()
+        if autofix:
+            parts, fixed = kit.autofix(parts)
         res = kit.resolve(parts)
         # a real build in a test map may measure doorways it has not seen; a dry run never touches the level
         issues = kit.check(res, measure=not dry_run and kit.in_test_map(level))
@@ -202,6 +200,9 @@ def build_blueprint(name: str, parts: list[dict], folder: str = "/Game/ARPG/_San
     ys = (min(p["box"][1] for p in res), max(p["box"][4] for p in res))
     report = [f"{len(res)} parts; overall {xs[1]-xs[0]:.0f} x {ys[1]-ys[0]:.0f} cm footprint, {top:.0f} cm tall",
               kit.table(res), "ISSUES: " + ("none" if not issues else ""), *[" - " + i for i in issues]]
+    if fixed:
+        report += ["AUTO-FIXED (already applied):", *[" - " + f for f in fixed],
+                   "PARTS NOW (send and report these from now on): " + json.dumps(parts, ensure_ascii=False)]
     if dry_run:
         return "\n".join(["DRY RUN (nothing built)"] + report)
     label = name + kit.TEST_SUFFIX
@@ -228,68 +229,31 @@ def build_blueprint(name: str, parts: list[dict], folder: str = "/Game/ARPG/_San
     if traced:
         report.append("TRACED ISSUES (measured on the built copy - fix these too):")
         report.extend(" - " + t for t in traced)
-    return "\n".join(report)
+    if issues or traced:
+        return "\n".join(report)
+    try:                                           # a clean build: show it, so the look questions get answered
+        text, small = shots.look(label)
+    except Exception as e:
+        return "\n".join(report + [f"(photo failed: {str(e)[:200]} - call look(\"{label}\"))"])
+    report[0] = report[0].replace(f" Next: look(\"{label}\") and open the sheet.", "")
+    return _img("\n".join(report) + "\n\nPHOTOS of the test copy - " + text, small)
 
 
 @mcp.tool()
-def look(label: str, distance_scale: float = 1.0) -> list:
-    """Photograph a placed actor (by its label, e.g. "MyHouse_Test") from front (+Y), back (-Y), right (+X),
-    left (-X) and a high 3/4 view. Saves each photo and ONE 2x3 sheet PNG; returns the paths. Open the sheet
-    with your vision tool and judge it: parts floating or sunk, gaps, roof not covering, door missing or
-    blocked, odd scale."""
+def look(label: str, distance_scale: float = 1.0):
+    """Photograph a placed actor (by its exact label, e.g. "MyHouse_Test") from front (+Y), back (-Y), right
+    (+X), left (-X) and a high 3/4 view. Saves each photo and ONE 2x3 sheet PNG, attaches the sheet and
+    returns the paths. Judge it: parts floating or sunk, gaps, roof not covering, door missing or blocked,
+    odd scale."""
     _fresh()
-    found, err = _find(label)
-    if err:
-        return err
-    b = ue.call(A, "get_actor_bounds", {"actor": found[0]})["returnValue"]
-    mn, mx = b["min"], b["max"]
-    mn["z"] = max(mn["z"], 0.0)      # ignore editor-only sprites below the ground
-    c = [(mn[k] + mx[k]) / 2 for k in "xyz"]
-    size = max(mx["x"] - mn["x"], mx["y"] - mn["y"], mx["z"] - mn["z"])
-    d = (size * 1.5 + 300) * distance_scale
-    h = c[2] + (mx["z"] - mn["z"]) * 0.1
-    views = [("front_+Y", (c[0], c[1] + d, h), -90), ("back_-Y", (c[0], c[1] - d, h), 90),
-             ("right_+X", (c[0] + d, c[1], h), 180), ("left_-X", (c[0] - d, c[1], h), 0)]
-    q = d * 0.75
-    views.append(("three_quarter", (c[0] + q, c[1] + q, mx["z"] + d * 0.45), -135))
-    files = []
-    for vname, (x, y, z), yaw in views:
-        pitch = -math.degrees(math.atan2(z - c[2], math.hypot(x - c[0], y - c[1])))
-        args = {"captureTransform": {"location": {"x": x, "y": y, "z": z},
-                                     "rotation": {"pitch": pitch, "yaw": yaw, "roll": 0}},
-                "annotations": {"gridSpacing": 0, "gridExtent": 0, "gridHeight": 0, "maxLabelDistance": 0,
-                                "classFilter": None, "maxLabels": 0},
-                "bShowUI": False}
-        # Capture twice and keep the second: Nanite culls against the previous frame's depth, so the first
-        # frame from a new viewpoint can drop whole modules (their cached shadows still show).
-        ue.call(APP, "CaptureViewport", args)
-        r = ue.call(APP, "CaptureViewport", args)
-        f = os.path.join(OUT, f"{label}_{vname}.png")
-        ue.save_png(r, f)
-        files.append((vname, f))
-    tiles = [Image.open(f).convert("RGB").resize((640, 360)) for _, f in files]
-    sheet = Image.new("RGB", (1920, 720), (20, 20, 20))
-    for i, t in enumerate(tiles):
-        sheet.paste(t, ((i % 3) * 640, (i // 3) * 360))
-    out = os.path.join(OUT, f"{label}_sheet.png")
-    sheet.save(out)
-    small = os.path.join(OUT, f"{label}_sheet_small.jpg")
-    sheet.resize((1344, 504)).save(small, quality=85)
-    text = (f"saved sheet {out} (row 1: front +Y, back -Y, right +X; row 2: left -X, 3/4 from +X+Y above).\n"
-            f"actor box: ({mn['x']:.0f}, {mn['y']:.0f}, {mn['z']:.0f}) -> ({mx['x']:.0f}, {mx['y']:.0f}, {mx['z']:.0f})\n"
-            + "\n".join(f"{v}: {f}" for v, f in files) +
-            "\n\nThe sheet is attached below. If you cannot see an image, open the sheet with your vision tool NOW. "
-            "Answer each question from the picture before you report:\n"
-            "1. Front view: is a door visible, and can you walk up to it (steps if the floor is raised)?\n"
-            "2. Does anything hang in the air or stick out past what holds it up?\n"
-            "3. Does the roof cover every wall below it, with no bare flat ledges?\n"
-            "4. Do the floors line up (no box sitting on a much bigger or smaller box)?\n"
-            "5. Is anything buried in the ground or poking through another part?")
-    return [text, MCPImage(path=small)]
+    try:
+        return _img(*shots.look(label, distance_scale))
+    except ue.UEError as e:
+        return f"ERROR {e}"
 
 
 @mcp.tool()
-def look_inside(label: str, door_side: str = "+Y", door_offset: float = 0.0) -> list:
+def look_inside(label: str, door_side: str = "+Y", door_offset: float = 0.0):
     """Photograph the INSIDE of a placed building: from just inside its doorway looking in, from the back
     looking at the doorway, and from a back corner. door_side = the side the entrance faces (+X -X +Y -Y);
     door_offset slides the cameras along that wall to line up with the doorway (cm, e.g. 143). Returns one
@@ -362,6 +326,52 @@ def check_designs(names: list[str] | None = None) -> str:
     need rebuilding; then rebuild each one that reports issues."""
     _fresh()
     return kit.check_designs(names)
+
+
+
+@mcp.tool()
+def get_design(name: str = "") -> str:
+    """The parts JSON of a design ue-kit built (e.g. "BP_HouseBakery"), to edit and send back to
+    build_blueprint under a new name - much easier than writing a house from nothing. With no name: the list
+    of designs on file."""
+    _fresh()
+    return kit.get_design(name)
+
+
+@mcp.tool()
+def gallery(names: list[str] | None = None):
+    """One labelled 3/4 photo per built design (its test copy) in a single grid picture - compare many
+    designs at a glance, e.g. to pick houses for a street or to spot the odd one out. names = Blueprint names
+    without _Test; leave out for every design on file (slow: about 3 s each)."""
+    _fresh()
+    try:
+        return _img(*shots.gallery(names or sorted(kit.designs())))
+    except ue.UEError as e:
+        return f"ERROR {e}"
+
+
+@mcp.tool()
+def look_area(x: float, y: float, size: float = 6000, z: float = 0, name: str = "area"):
+    """Photograph a REGION of the open level - centre x, y (cm), `size` cm across - from straight above and
+    from four corners, as one sheet. For judging a street, a market square or a whole town layout rather
+    than one building (use look for that)."""
+    _fresh()
+    try:
+        return _img(*shots.area(x, y, size, z, name))
+    except ue.UEError as e:
+        return f"ERROR {e}"
+
+
+@mcp.tool()
+def kit_notes(folder: str = "/Game/FantasyBundle/Meshes", query: str = "") -> str:
+    """Write a markdown summary of a mesh folder: every mesh's size and pivot, known doorways, and which
+    wall/floor modules stack on which. Use it once when starting with a new asset pack, then read the file
+    it names instead of measuring parts one by one."""
+    _fresh()
+    try:
+        return kit.kit_notes(folder, query)[0]
+    except (ValueError, ue.UEError) as e:
+        return f"ERROR {e}"
 
 
 if __name__ == "__main__":

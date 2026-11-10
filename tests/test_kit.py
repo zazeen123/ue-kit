@@ -168,3 +168,55 @@ def test_state_files_are_valid_json(offline):
     for attr in ("CACHE", "OPEN_CACHE", "SPOTS", "REGISTRY", "DESIGNS"):
         with open(getattr(kit, attr), encoding="utf-8") as f:
             assert isinstance(json.load(f), dict)
+
+
+# ---------------------------------------------------------------- autofix, get_design, kit_notes
+
+WIDE = [{"name": "GroundFloor", "mesh": "SM_House1stFloor02"},
+        {"name": "Roof", "mesh": "SM_HouseRoof04", "place": "on:GroundFloor", "offset": [0, 0, 40]},
+        {"name": "Door", "mesh": "SM_Door01", "place": "flush:GroundFloor:-Y", "offset": [-143, 14, 0]}]
+
+
+def test_autofix_covers_walls_lowers_roof_and_trims_steps(offline, house):
+    wide = [dict(p) for p in WIDE]
+    before = kit.check(kit.resolve(wide))
+    assert any(i.startswith("ROOF TOO SMALL") for i in before) and any(i.startswith("FLOATING ROOF") for i in before)
+    fixed, notes = kit.autofix(wide)
+    after = kit.check(kit.resolve(fixed))
+    assert not [i for i in after if i.split(":")[0] in ("ROOF TOO SMALL", "FLOATING ROOF")], after
+    assert any("cover" in n for n in notes)
+    assert wide[1].get("cover") is None                      # the caller's list is not modified
+
+    house[5]["scale"] = [1, 1.33, 3.0]                       # steps far taller than the plinth
+    assert any(i.startswith("STEPS TOO TALL") for i in kit.check(kit.resolve(house)))
+    fixed, notes = kit.autofix(house)
+    assert not kit.check(kit.resolve(fixed)), kit.check(kit.resolve(fixed))
+    assert any(n.startswith("Steps") for n in notes)
+
+
+def test_autofix_leaves_design_decisions_alone(offline, house):
+    house[2].pop("place")                                    # upper storey on the ground: OVERLAP
+    fixed, _ = kit.autofix(house)
+    assert any(i.startswith("OVERLAP") for i in kit.check(kit.resolve(fixed)))
+
+
+def test_autofix_through_the_tool_prints_the_new_parts(offline):
+    out = dry([dict(p) for p in WIDE], autofix=True)
+    assert "AUTO-FIXED" in out and "PARTS NOW" in out and "ROOF TOO SMALL" not in out, out
+
+
+def test_get_design(offline):
+    assert "design(s) on file" in server.get_design()
+    out = server.get_design("BP_GatefallHouse")
+    parts = json.loads(out.split("\n")[-1])
+    assert parts[0]["name"] == "Plinth"
+    assert "did you mean" in server.get_design("Gatefall")
+
+
+def test_kit_notes_writes_a_table(offline):
+    text, path = kit.kit_notes("/Game/FantasyBundle/Meshes", "House1stFloor|House2dFloor|HouseBase")
+    if path is None:
+        pytest.skip("project content not on this machine")
+    body = open(path, encoding="utf-8").read()
+    assert "| `SM_HouseBase01` |" in body and "What stacks on what" in body
+    assert offline.calls == []
