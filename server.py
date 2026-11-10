@@ -387,5 +387,81 @@ def promote(name: str, folder: str = "/Game/ARPG/Environment/Town") -> str:
         return f"ERROR {e}"
 
 
+
+@mcp.tool()
+def place_town(assign: dict | None = None, types: list[str] | None = None, lots: list[int] | None = None,
+               dry_run: bool = True, seed: int = 1, origin: list[float] | None = None):
+    """Put built designs on the lots of the town layout (Docs/World/gatefall-layout.json): one design per
+    lot, turned so its door faces the nearest road, set on the ground under it (with a stone foundation where
+    the ground slopes a little). Test map only.
+
+      assign  {"36": "BP_HouseBakery", ...} fixes the design of some lots; every other selected lot gets a
+              design that fits it, chosen so that neighbours differ (same seed = same town)
+      types   layout types to fill: ["house"] (default), or ["stall"], or both
+      lots    only these lot ids (default: all of those types)
+      dry_run True (default) only plans and measures - nothing is placed. Read the table and the ISSUES
+              (LOT OCCUPIED, TOO BIG, ON THE ROAD, OVERLAP, STEEP LOT) first.
+      origin  [x, y] cm added to every position - to try a layout on empty ground
+
+    A real run first removes what ue-kit placed before (found by its tag, nothing else), places the plan,
+    and attaches an overview photo. Occupied and steep lots are skipped, never built over."""
+    _fresh()
+    try:
+        layout = town.load_layout()
+    except (OSError, ValueError) as e:
+        return f"ERROR cannot read the layout {town.LAYOUT}: {e}"
+    origin = tuple(origin or (0, 0))[:2]
+    try:
+        rows, issues = town.plan(layout, assign, tuple(types or ("house",)), lots, origin, seed)
+        if not rows:
+            return "nothing to place.\nISSUES:\n" + "\n".join(" - " + i for i in issues)
+        removed = None
+        if not dry_run:                 # take ue-kit's earlier town out first, so the ground can be measured
+            err, removed = town.remove_own()
+            if err:
+                return err
+        issues += town.survey(rows)
+        res = town.place(rows, dry_run, removed=removed)
+    except (ValueError, KeyError, TypeError) as e:
+        return f"ERROR {e}"
+    except ue.UEError as e:
+        return f"ERROR {e}"
+    if res.get("error"):
+        return res["error"]
+    skipped = [r for r in rows if r.get("flag")]
+    head = (f"DRY RUN (nothing placed): would place {len(rows) - len(skipped)} of {len(rows)} lot(s)" if dry_run else
+            f"placed {res['placed']} actor(s) on {len(rows) - len(skipped)} lot(s); removed {res['removed']} from the "
+            f"previous placement")
+    founds = [j["label"] for j in res["jobs"] if j["label"].endswith("_Foundation")]
+    if not dry_run and res["placed"] != res["wanted"]:
+        issues.append(f"PLACEMENT INCOMPLETE: {res['placed']} of {res['wanted']} actors are in the level - call "
+                      f"place_town again")
+    text = "\n".join([head, town.table(rows), "ISSUES: " + ("none" if not issues else ""),
+                       *[" - " + i for i in issues]]
+                      + (["foundations: " + ", ".join(founds)] if founds else []))
+    if dry_run:
+        return text + "\nCall again with dry_run=False to place it."
+    xs = [v for r in rows for v in (r["box"][0], r["box"][2])]
+    ys = [v for r in rows for v in (r["box"][1], r["box"][3])]
+    z = max((r.get("z", 0) for r in rows), default=0)
+    try:
+        ptext, small = shots.area((min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2,
+                                  max(max(xs) - min(xs), max(ys) - min(ys)) + 1500, z, "town")
+    except Exception as e:
+        return text + f"\n(overview photo failed: {str(e)[:200]} - call look_area)"
+    return _img(text + "\n\nOVERVIEW - " + ptext + "\nCheck: does every door face a road, does any house "
+                "stand on a road or touch its neighbour, does anything float or sink?", small)
+
+
+@mcp.tool()
+def clear_town() -> str:
+    """Remove everything place_town put into the open test map (only actors carrying ue-kit's town tag)."""
+    _fresh()
+    try:
+        return town.clear()
+    except ue.UEError as e:
+        return f"ERROR {e}"
+
+
 if __name__ == "__main__":
     mcp.run()

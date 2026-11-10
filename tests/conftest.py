@@ -30,6 +30,11 @@ def offline(tmp_path, monkeypatch):
     monkeypatch.setattr(server, "_fresh", lambda: None)
     monkeypatch.setattr(server, "kit", kit)
     monkeypatch.setattr(server, "ue", ue)
+    import shots
+    import town
+    monkeypatch.setattr(server, "shots", shots)
+    monkeypatch.setattr(server, "town", town)
+    monkeypatch.setattr(town, "PLAN", str(tmp_path / "town_plan.json"))
     monkeypatch.setattr(ue, "call", blocked)
     monkeypatch.setattr(ue, "batch", blocked)
     for attr, fn in STATE:

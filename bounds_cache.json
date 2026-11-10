@@ -2171,7 +2171,12 @@
 "/Game/FantasyBundle/Meshes/SM_HouseWall6m01.SM_HouseWall6m01": 1793801073,
 "/Game/FantasyBundle/Meshes/SM_HouseWall6m02.SM_HouseWall6m02": 1793801073,
 "/Game/FantasyBundle/Meshes/SM_HouseWall6m03.SM_HouseWall6m03": 1793801073,
-"/Game/FantasyBundle/Meshes/SM_HouseWall6m04.SM_HouseWall6m04": 1793801073
+"/Game/FantasyBundle/Meshes/SM_HouseWall6m04.SM_HouseWall6m04": 1793801073,
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Book_Hardback_Paper_Brown_01/SM_Res_Book_Hardback_Paper_Brown_01.SM_Res_Book_Hardback_Paper_Brown_01": 1794123606,
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_01a.SM_LightGenerator_01a": 1793791528,
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_Base_01a.SM_LightGenerator_Base_01a": 1793791528,
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_Lights_01a.SM_LightGenerator_Lights_01a": 1793791528,
+"/Game/FantasyBundle/Meshes/SM_Floor03.SM_Floor03": 1793801072
 },
 "/Game/FantasyBundle/Meshes/SM_FlagPole01.SM_FlagPole01": [
 -237.7,
@@ -2948,5 +2953,37 @@
 55.2,
 0.0,
 127.4
+],
+"/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Res_Book_Hardback_Paper_Brown_01/SM_Res_Book_Hardback_Paper_Brown_01.SM_Res_Book_Hardback_Paper_Brown_01": [
+-1.1,
+-6.8,
+-0.0,
+1.1,
+6.7,
+19.1
+],
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_01a.SM_LightGenerator_01a": [
+-198.2,
+-78.5,
+0,
+198.2,
+78.5,
+416.0
+],
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_Base_01a.SM_LightGenerator_Base_01a": [
+-198.2,
+-78.5,
+0,
+198.2,
+78.5,
+203.9
+],
+"/Game/Construction_VOL1/Meshes/SM_LightGenerator_Lights_01a.SM_LightGenerator_Lights_01a": [
+-22.3,
+-56.1,
+0,
+22.3,
+56.1,
+295.0
 ]
 }

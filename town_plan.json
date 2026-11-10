@@ -1,0 +1,46 @@
+{
+"level": "/Game/ARPG/Maps/Gatefall/L_GatefallTown_Preview",
+"rows": [
+{
+"lot": 45,
+"type": "house",
+"design": "BP_HouseCottage",
+"yaw": 180.0,
+"loc": [
+-2200.0,
+24200.0
+],
+"centre": [
+-2200.0,
+24200.0
+],
+"faces": "-Y",
+"way_cm": 400,
+"box": [
+-2395,
+23848,
+-2005,
+24552
+],
+"walls": [
+-2355,
+23888,
+-2045,
+24512
+],
+"lot_box": [
+-2800,
+23750,
+-1600,
+24650
+],
+"top": 566.2,
+"ground": [
+-2.0,
+88.0
+],
+"z": 88.0,
+"fill": 90.0
+}
+]
+}
