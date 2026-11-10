@@ -220,3 +220,49 @@ def test_kit_notes_writes_a_table(offline):
     body = open(path, encoding="utf-8").read()
     assert "| `SM_HouseBase01` |" in body and "What stacks on what" in body
     assert offline.calls == []
+
+
+# ---------------------------------------------------------------- other packs, dressing, budget
+
+def test_bare_names_resolve_across_packs(offline):
+    assert kit.full_path("SM_Door01") == "/Game/FantasyBundle/Meshes/SM_Door01.SM_Door01"
+    assert kit.full_path("/Game/X/SM_A") == "/Game/X/SM_A.SM_A"
+    idx = kit.mesh_index()
+    if not idx:
+        pytest.skip("project content not on this machine")
+    other = next((n for n, p in idx.items() if len(p) == 1 and "FantasyBundle" not in p[0]), None)
+    assert other and kit.full_path(other) == idx[other][0] + "." + other
+    twice = next((n for n, p in idx.items() if len(p) > 1), None)
+    if twice:
+        with pytest.raises(ValueError, match="asset packs"):
+            kit.full_path(twice)
+    assert "FantasyBundle" in kit.kit_packs()
+
+
+def test_dress_adds_props_without_new_issues(offline, house):
+    before = set(kit.check(kit.resolve(house)))
+    out, notes = kit.dress(house, count=3, seed=7)
+    assert len(out) == len(house) + 3 and len(notes) == 3
+    assert set(kit.check(kit.resolve(out))) == before
+    res = {p["name"]: p for p in kit.resolve(out)}
+    door = res["Door"]["box"]
+    for p in out[len(house):]:
+        b = res[p["name"]]["box"]
+        assert b[2] == pytest.approx(0, abs=1)                       # on the ground
+        assert not (b[4] > door[1] and b[0] < door[3] and door[0] < b[3] and b[1] > door[1] - 200), p   # not at the door
+    assert kit.dress(house, 3, 7)[0] == out                           # same seed, same result
+    assert kit.dress(house, 3, 8)[0] != out
+
+
+def test_budget_counts_parts_and_lights(offline, monkeypatch):
+    monkeypatch.setattr(kit, "mesh_stats", lambda meshes: {kit.full_path(m): [1000, False] for m in meshes})
+    out = kit.budget(["BP_GatefallHouse", "BP_Nope"])
+    assert "BP_GatefallHouse | 7 | 7 | 0 | 7,000 | 7,000" in out and "BP_Nope | not on file" in out
+
+
+def test_load_on_a_wagon_bed_does_not_clash(offline):
+    parts = [{"name": "Wagon", "mesh": "SM_Wagon01"},
+             {"name": "Keg", "mesh": "SM_Barrel01", "place": "inside:Wagon", "offset": [0, -60, 80], "scale": 0.5}]
+    assert not [i for i in kit.check(kit.resolve(parts)) if i.startswith("CLASH")]
+    two = [{"name": "KegA", "mesh": "SM_Barrel01"}, {"name": "KegB", "mesh": "SM_Barrel01", "offset": [10, 0, 0]}]
+    assert [i for i in kit.check(kit.resolve(two)) if i.startswith("CLASH")]        # real clashes still fire

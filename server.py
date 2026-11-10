@@ -463,5 +463,44 @@ def clear_town() -> str:
         return f"ERROR {e}"
 
 
+
+@mcp.tool()
+def kit_packs() -> str:
+    """List the asset packs of the project that contain static meshes (FantasyBundle, dungeon and tunnel
+    sets, Megascans...), with the folder of each to pass to kit_parts or kit_notes. A bare mesh name in a
+    part ("SM_X") is found in whichever pack has it."""
+    _fresh()
+    return kit.kit_packs()
+
+
+@mcp.tool()
+def dress_design(name: str, count: int = 3, seed: int = 1) -> str:
+    """Add a few small props (barrels, firewood, planks, a washtub) around a built design so it looks lived
+    in: outside the ground-level walls, never in front of the door or steps, never where the checks would
+    object. Returns the NEW parts JSON - nothing is built; send it to build_blueprint (same name to update
+    the design, or a new name for a variant). A different seed gives a different arrangement."""
+    _fresh()
+    d = kit.designs().get(name)
+    if not d:
+        return kit.get_design(name)
+    try:
+        parts, notes = kit.dress(d["parts"], max(1, min(int(count), 8)), seed)
+    except (ValueError, ue.UEError) as e:
+        return f"ERROR {e}"
+    return ("\n".join(["added:"] + [" - " + n for n in notes])
+            + "\nPARTS (send to build_blueprint): " + json.dumps(parts, ensure_ascii=False))
+
+
+@mcp.tool()
+def budget(names: list[str] | None = None) -> str:
+    """What the built designs cost to draw: components, different meshes, point lights and triangles per
+    design, heaviest first, with notes on what to reduce. Use it before filling a town with one design."""
+    _fresh()
+    try:
+        return kit.budget(names)
+    except (ValueError, ue.UEError) as e:
+        return f"ERROR {e}"
+
+
 if __name__ == "__main__":
     mcp.run()

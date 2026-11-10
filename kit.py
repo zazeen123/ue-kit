@@ -104,10 +104,37 @@ def _load_cache():
     return _read_json(CACHE)
 
 
+DEFAULT_FOLDER = "/Game/FantasyBundle/Meshes"
+_INDEX = {"at": 0.0, "names": {}}
+
+
+def mesh_index(max_age=300.0):
+    """{mesh name: [/Game paths]} for every SM_*.uasset of the project (a scan of the Content folder, under a
+    second; kept for a few minutes)."""
+    if time.time() - _INDEX["at"] > max_age:
+        names = {}
+        for dirpath, _, files in os.walk(CONTENT):
+            for f in files:
+                if f.startswith("SM_") and f.endswith(".uasset"):
+                    rel = os.path.relpath(os.path.join(dirpath, f[:-7]), CONTENT).replace(os.sep, "/")
+                    names.setdefault(f[:-7], []).append("/Game/" + rel)
+        _INDEX.update(at=time.time(), names=names)
+    return _INDEX["names"]
+
+
 def full_path(mesh):
-    """'/Game/A/SM_X' or '/Game/A/SM_X.SM_X' or 'SM_X' (FantasyBundle) -> '/Game/A/SM_X.SM_X'."""
+    """'/Game/A/SM_X' or '/Game/A/SM_X.SM_X' or a bare 'SM_X' -> '/Game/A/SM_X.SM_X'. A bare name is looked
+    for in the default kit first, then in every other asset pack; a name that exists in several packs must be
+    given with its path."""
     if not mesh.startswith("/"):
-        mesh = "/Game/FantasyBundle/Meshes/" + mesh
+        bare = mesh.split(".")[0]
+        hits = [DEFAULT_FOLDER + "/" + bare]
+        if _mesh_mtime(hits[0]) is None:
+            hits = mesh_index().get(bare) or hits
+            if len(hits) > 1:
+                raise ValueError(f"{bare} exists in {len(hits)} asset packs - give the full path, one of: "
+                                 + ", ".join(sorted(hits)))
+        mesh = hits[0]
     if "." not in mesh.rsplit("/", 1)[-1]:
         mesh = mesh + "." + mesh.rsplit("/", 1)[-1]
     return mesh
@@ -581,8 +608,10 @@ def check(resolved, measure=False):
                 issues.append(f"THROUGH WALL: {p['name']} crosses a wall of {sh['name']} - put it fully inside "
                               f"(inside:{sh['name']}) or fully outside (against:{sh['name']}:<side>)")
                 break
-    # A canopy's box is the whole space under it: goods standing there do not clash with it.
-    hollow = re.compile(r"canopy|awning|tent|pavilion|shelter|parasol|umbrella|pergola", re.I)
+    # A canopy's box is the whole space under it, a wagon's or a table's reaches up to its highest rail:
+    # goods standing under, on or in such a carrier do not clash with it.
+    hollow = re.compile(r"canopy|awning|tent|pavilion|shelter|parasol|umbrella|pergola|gazebo|"
+                        r"wagon|cart|table|shel(f|ves)|counter|basket|open_?box", re.I)
     for i, a in enumerate(props):
         for c in props[i + 1:]:
             if any(hollow.search(q["name"]) or hollow.search(q["mesh"].rsplit("/", 1)[-1]) for q in (a, c)):
@@ -1102,6 +1131,171 @@ def promote(name, folder):
     log_action("promote", blueprint=name, **{"from": src, "to": dst}, saved=saved, redirector_left=left)
     return (f"moved {src} -> {dst} (saved={saved}). Rebuilds of {name} now happen there, in place."
             + (f" A redirector was left at {src}; Mu can remove it with Fix Up Redirectors." if left else ""))
+
+
+def kit_packs():
+    """The asset packs of the project that hold static meshes, with the folder to pass to kit_parts."""
+    folders = {}
+    for name, paths in mesh_index().items():
+        for p in paths:
+            folders[p.rsplit("/", 1)[0]] = folders.get(p.rsplit("/", 1)[0], 0) + 1
+    packs = {}
+    for f, n in folders.items():
+        packs.setdefault(f.split("/")[2], []).append((n, f))
+    lines = [f"{len(packs)} asset pack(s) with static meshes (SM_*). Pass a folder to kit_parts / kit_notes:"]
+    for pack in sorted(packs, key=lambda k: -sum(n for n, _ in packs[k])):
+        top = sorted(packs[pack], reverse=True)[:3]
+        lines.append(f"{pack}: {sum(n for n, _ in packs[pack])} meshes - " + "; ".join(f"{f} ({n})" for n, f in top))
+    return "\n".join(lines)
+
+
+# ---------------------------------------------------------------- dressing a design with props
+
+PROPS = ("SM_Barrel01", "SM_Barrel02", "SM_Barrel03", "SM_Barrel04", "SM_WoodChunks01", "SM_WoodChunks02",
+         "SM_WoodChunks03", "SM_WoodChunks04", "SM_WoodChunks05", "SM_Planks", "SM_Washtub")
+
+
+def dress(parts, count=3, seed=1, props=PROPS):
+    """Adds `count` small props (barrels, firewood, planks, a washtub) outside the ground-level walls of a
+    design - never on the side with the door or the steps, never where it would raise a new issue.
+    Same seed, same result. Returns (new parts, notes); nothing is built."""
+    import random
+    base = set(check(resolve(parts)))
+    res = [p for p in resolve(parts) if not p.get("light")]
+    low = min((p["box"][2] for p in res if is_shell(p)), default=None)
+    hosts = [p for p in res if is_shell(p) and p["box"][2] <= (low or 0) + 5]
+    if not hosts:
+        return parts, ["no wall or floor module stands on the ground - nothing to put props against"]
+    entry = [p for p in res if re.search(r"door|step|stair|gate|entrance", p["name"], re.I)]
+    free = []
+    for h in hosts:
+        hb = h["box"]
+        for side in SIDES:
+            ax = 0 if side[1] == "X" else 1
+            o = 1 - ax
+            face = hb[3 + ax] if side[0] == "+" else hb[ax]
+            sgn = 1 if side[0] == "+" else -1
+            blocked = False
+            for q in entry + [x for x in hosts if x is not h]:
+                qb = q["box"]
+                near = (qb[ax] if sgn > 0 else qb[3 + ax])          # the face of q nearest to this wall
+                c = (qb[ax] + qb[3 + ax]) / 2
+                overlap = qb[o] < hb[3 + o] and hb[o] < qb[3 + o]
+                if overlap and (sgn * (c - face) > -60) and abs(near - face) < 250:
+                    blocked = True
+            if not blocked and hb[3 + o] - hb[o] >= 200:
+                free.append((h["name"], side, hb[3 + o] - hb[o]))
+    if not free:
+        return parts, ["every ground-level wall has a door, steps or a neighbour against it - no room for props"]
+    avail = [m for m in props if _mesh_mtime(full_path(m)) is not None] or list(props)
+    rng = random.Random(seed)
+    out = json.loads(json.dumps(parts))
+    names = {p["name"] for p in out}
+    notes = []
+    for i in range(count):
+        for _ in range(12):
+            host, side, length = rng.choice(free)
+            mesh = rng.choice(avail)
+            along = round(rng.uniform(-(length / 2 - 70), length / 2 - 70))
+            gap = 6 if side[0] == "+" else -6
+            off = [gap, along, 0] if side[1] == "X" else [along, gap, 0]
+            kind = re.sub(r"\d+$", "", mesh.replace("SM_", ""))
+            name = f"Prop{i + 1}_{kind}"
+            n = 2
+            while name in names:
+                name = f"Prop{i + 1}_{kind}{n}"
+                n += 1
+            cand = {"name": name, "mesh": mesh, "place": f"against:{host}:{side}", "offset": off,
+                    "yaw": rng.choice([0, 90, 180, 270])}
+            try:
+                extra = set(check(resolve(out + [cand]))) - base
+            except ValueError:
+                continue
+            if not extra:
+                out.append(cand)
+                names.add(name)
+                notes.append(f"{name} ({mesh}) against {host} {side}")
+                break
+    if len(notes) < count:
+        notes.append(f"only {len(notes)} of {count} props found a free spot")
+    return out, notes
+
+
+# ---------------------------------------------------------------- what a design costs to draw
+
+STATS = os.path.join(HERE, "mesh_stats.json")
+
+_STATS_JOB = """
+SM = "editor_toolset.toolsets.static_mesh.StaticMeshTools."
+def run():
+    out = {}
+    for p in DATA:
+        m = json.dumps({"mesh": {"refPath": p}})
+        out[p] = [execute_tool(SM + "get_triangle_count", m)["returnValue"],
+                  bool(execute_tool(SM + "is_nanite_enabled", m)["returnValue"])]
+    return out
+"""
+
+
+def mesh_stats(meshes):
+    """{path: [triangles of LOD 0, nanite enabled]} - read from the editor once per mesh, cached."""
+    cache = _read_json(STATS)
+    paths = [full_path(m) for m in meshes]
+    dirty = _fresh_entries(cache, paths)
+    missing = [p for p in dict.fromkeys(paths) if p not in cache]
+    if missing:
+        got = ue.batch(_STATS_JOB, missing)        # read-only in the editor
+        cache.update(got)
+        for k in got:
+            t = _mesh_mtime(k)
+            if t is not None:
+                cache["__mtime__"][k] = t
+        dirty = True
+    if dirty:
+        _write_json(STATS, cache)
+    return {p: cache[p] for p in paths}
+
+
+def budget(names=None):
+    """Per design: how many components, lights and triangles it puts on screen, and what to watch.
+    A town is many copies of these, with many players looking at them at once."""
+    d = designs()
+    todo = names or sorted(d)
+    rows, total = [], 0
+    for n in todo:
+        if n not in d:
+            rows.append((n, None))
+            continue
+        parts = d[n]["parts"]
+        meshes = [full_path(p["mesh"]) for p in parts if not p.get("light")]
+        st = mesh_stats(meshes)
+        tris = sum(st[m][0] for m in meshes)
+        plain = sum(st[m][0] for m in meshes if not st[m][1])
+        lights = sum(1 for p in parts if p.get("light"))
+        counts = {}
+        for m in meshes:
+            counts[m] = counts.get(m, 0) + 1
+        rep = sorted(((c, m.rsplit("/", 1)[-1].split(".")[0]) for m, c in counts.items() if c >= 4), reverse=True)
+        notes = []
+        if lights > 2:
+            notes.append(f"{lights} point lights (each is lit and shadowed separately - keep to 1-2 per house)")
+        if len(meshes) > 40:
+            notes.append(f"{len(meshes)} components (each is its own draw unless instanced or merged)")
+        if plain > 150000:
+            notes.append(f"{plain:,} triangles without Nanite (enable Nanite on the heaviest meshes)")
+        if rep:
+            notes.append("repeated meshes that could be instanced: " + ", ".join(f"{m} x{c}" for c, m in rep))
+        rows.append((n, (len(meshes), len(counts), lights, tris, plain, notes)))
+        total += tris
+    lines = [f"{len(todo)} design(s); {total:,} triangles if each is placed once (LOD 0).",
+             "design | components | different meshes | lights | triangles | of which not Nanite"]
+    for n, r in sorted(rows, key=lambda x: -(x[1][3] if x[1] else 0)):
+        if r is None:
+            lines.append(f"{n} | not on file")
+            continue
+        lines.append(f"{n} | {r[0]} | {r[1]} | {r[2]} | {r[3]:,} | {r[4]:,}")
+        lines.extend("   - " + x for x in r[5])
+    return "\n".join(lines)
 
 
 # ---------------------------------------------------------------- changing the level (test maps only)

@@ -59,8 +59,9 @@ def test_origin_moves_everything(offline, layout):
 
 
 def test_stalls_get_stall_designs(offline, layout):
-    rows, _ = town.plan(layout, types=("stall",))
-    assert rows and all("MarketStall" in r["design"] for r in rows)
+    rows, issues = town.plan(layout, types=("stall",), lots=[12, 13, 14, 15, 16, 17, 18, 19])
+    assert len(rows) == 8 and all("MarketStall" in r["design"] for r in rows)
+    assert not [i for i in issues if i.startswith("ON THE ROAD")], issues       # the market square is not a road
 
 
 def test_survey_flags_occupied_and_steep_and_fills_a_slope(offline, layout, monkeypatch):

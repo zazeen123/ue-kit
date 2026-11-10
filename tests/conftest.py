@@ -14,7 +14,7 @@ import server  # noqa: E402
 import ue_client as ue  # noqa: E402
 
 STATE = (("CACHE", "bounds_cache.json"), ("OPEN_CACHE", "openings_cache.json"), ("SPOTS", "test_spots.json"),
-         ("REGISTRY", "designs_registry.json"), ("DESIGNS", "designs.json"))
+         ("REGISTRY", "designs_registry.json"), ("DESIGNS", "designs.json"), ("STATS", "mesh_stats.json"))
 
 
 @pytest.fixture()

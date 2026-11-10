@@ -2176,7 +2176,11 @@
 "/Game/Construction_VOL1/Meshes/SM_LightGenerator_01a.SM_LightGenerator_01a": 1793791528,
 "/Game/Construction_VOL1/Meshes/SM_LightGenerator_Base_01a.SM_LightGenerator_Base_01a": 1793791528,
 "/Game/Construction_VOL1/Meshes/SM_LightGenerator_Lights_01a.SM_LightGenerator_Lights_01a": 1793791528,
-"/Game/FantasyBundle/Meshes/SM_Floor03.SM_Floor03": 1793801072
+"/Game/FantasyBundle/Meshes/SM_Floor03.SM_Floor03": 1793801072,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_1.SM_Large_Crossroad_Floor_1": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_2.SM_Large_Crossroad_Floor_2": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_3.SM_Large_Crossroad_Floor_3": 1793801731,
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Destroyed_Floor_1.SM_Large_Destroyed_Floor_1": 1793801731
 },
 "/Game/FantasyBundle/Meshes/SM_FlagPole01.SM_FlagPole01": [
 -237.7,
@@ -2985,5 +2989,37 @@
 22.3,
 56.1,
 295.0
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_1.SM_Large_Crossroad_Floor_1": [
+0,
+-800,
+0,
+800,
+0.0,
+30.0
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_2.SM_Large_Crossroad_Floor_2": [
+0,
+-800,
+0,
+800,
+0.0,
+30.0
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Crossroad_Floor_3.SM_Large_Crossroad_Floor_3": [
+0,
+-800,
+-0.0,
+800,
+0.0,
+30.0
+],
+"/Game/Medieval_Sewer_Dungeon/Static_Meshes/Floor/SM_Large_Destroyed_Floor_1.SM_Large_Destroyed_Floor_1": [
+0,
+-800,
+0.0,
+800,
+0.0,
+30.0
 ]
 }

@@ -104,6 +104,7 @@ def plan(layout, assign=None, types=("house",), lots=None, origin=(0, 0), seed=1
     fit the lot, so that neighbours differ. Returns (rows, issues)."""
     objs = layout["objects"]
     ways = [rect(o, origin) for o in objs if o["type"] in WAYS]
+    roads = [rect(o, origin) for o in objs if o["type"] == "road"]      # a stall belongs ON the market square
     chosen = [o for o in objs if o["type"] in types and (not lots or o["id"] in lots)]
     assign = {int(k): v for k, v in (assign or {}).items()}
     issues = []
@@ -159,7 +160,7 @@ def plan(layout, assign=None, types=("house",), lots=None, origin=(0, 0), seed=1
         if walls[2] - walls[0] > lw + 1 or walls[3] - walls[1] > lh + 1:
             issues.append(f"TOO BIG: {name} ({walls[2]-walls[0]:.0f} x {walls[3]-walls[1]:.0f} cm) does not fit lot "
                           f"{o['id']} ({lw:.0f} x {lh:.0f} cm) - choose a smaller design")
-        for w in ways:
+        for w in (ways if want_house else roads):
             if _overlap(walls, w, 20):
                 issues.append(f"ON THE ROAD: {name} on lot {o['id']} stands on a road/plaza - the lot itself overlaps it")
                 break
