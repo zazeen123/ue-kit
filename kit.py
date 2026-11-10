@@ -1062,6 +1062,48 @@ def kit_notes(folder, query=""):
     return text, out
 
 
+PROMOTE_ROOTS = ("/Game/ARPG/Environment",)      # where a finished design may be moved to
+
+
+def promote(name, folder):
+    """Moves a finished design out of the sandbox into the game's content (e.g. /Game/ARPG/Environment/Town).
+    Only a design ue-kit built, with no issues under the current checks, into a folder under PROMOTE_ROOTS
+    where nothing of that name exists. The move keeps the asset, so placed copies follow it; later rebuilds
+    happen in place at the new location."""
+    d = designs()
+    if name not in d:
+        return f"NOT MOVED: {name} is not a design ue-kit built (see get_design())"
+    folder = (folder or "").rstrip("/")
+    if not any(folder == r or folder.startswith(r + "/") for r in PROMOTE_ROOTS):
+        return f"NOT MOVED: {folder} is not under {' or '.join(PROMOTE_ROOTS)}"
+    old = d[name]["folder"].rstrip("/")
+    if old == folder:
+        return f"{name} is already in {folder}"
+    try:
+        issues = check(resolve(d[name]["parts"]))
+    except ValueError as e:
+        issues = [f"ERROR {e}"]
+    if issues:
+        return (f"NOT MOVED: {name} has {len(issues)} issue(s) under the current checks - fix and rebuild it "
+                f"first:\n" + "\n".join(" - " + i for i in issues))
+    src, dst = f"{old}/{name}", f"{folder}/{name}"
+    if not ue.call(AT_, "exists", {"path": src}).get("returnValue"):
+        return f"NOT MOVED: {src} does not exist in the project (build it first)"
+    if ue.call(AT_, "exists", {"path": dst}).get("returnValue"):
+        return f"NOT MOVED: {dst} already exists - choose another folder or name"
+    ok = ue.call(AT_, "move", {"path": src, "new_path": dst}).get("returnValue")
+    if not ok or not ue.call(AT_, "exists", {"path": dst}).get("returnValue"):
+        return f"NOT MOVED: the editor refused to move {src} to {dst}"
+    saved = ue.call(AT_, "save_assets", {"asset_paths": [dst]}).get("returnValue")
+    left = bool(ue.call(AT_, "exists", {"path": src}).get("returnValue"))      # a redirector may stay behind
+    d = designs()
+    d[name]["folder"] = folder
+    _write_json(DESIGNS, d)
+    log_action("promote", blueprint=name, **{"from": src, "to": dst}, saved=saved, redirector_left=left)
+    return (f"moved {src} -> {dst} (saved={saved}). Rebuilds of {name} now happen there, in place."
+            + (f" A redirector was left at {src}; Mu can remove it with Fix Up Redirectors." if left else ""))
+
+
 # ---------------------------------------------------------------- changing the level (test maps only)
 
 _EXACT_JOB = """
@@ -1178,6 +1220,81 @@ def run():
 
 AT_ = "editor_toolset.toolsets.asset.AssetTools"
 
+# Rebuilding IN PLACE: the Blueprint asset stays the same object, only its components are swapped. Copies of
+# it placed in other levels keep working, and the editor's unreliable asset delete is not needed at all.
+_UPDATE_JOB = """
+S = "editor_toolset.toolsets.scene.SceneTools."
+A = "editor_toolset.toolsets.actor.ActorTools."
+O = "editor_toolset.toolsets.object.ObjectTools."
+BT = "editor_toolset.toolsets.blueprint.BlueprintTools."
+AT = "editor_toolset.toolsets.asset.AssetTools."
+
+def call(name, args):
+    return execute_tool(name, json.dumps(args))
+
+def copies():
+    return [a for a in call(S + "find_actors", {"name": DATA["label"], "tag": "", "collision_channels": []})["returnValue"]
+            if call(A + "get_label", {"actor": a})["returnValue"] == DATA["label"]]
+
+def run():
+    path = DATA["folder"] + "/" + DATA["name"]
+    ref = {"refPath": path + "." + DATA["name"]}
+    cls = path + "." + DATA["name"] + "_C"
+    have = copies()
+    probe = None
+    if have:
+        src = have[0]
+    else:                       # nothing placed yet: a throw-away copy far above the map tells us its parts
+        probe = call(S + "add_to_scene_from_asset", {"asset_path": path, "name": "UEKitProbe",
+                     "xform": {"location": {"x": 45000, "y": 45000, "z": DATA["probe_z"]},
+                               "rotation": {"pitch": 0, "yaw": 0, "roll": 0}, "scale": {"x": 1, "y": 1, "z": 1}}})["returnValue"]
+        src = probe
+    old = []
+    for kind in ("/Script/Engine.StaticMeshComponent", "/Script/Engine.PointLightComponent"):
+        for c in call(A + "get_components", {"actor": src, "component_type": {"refPath": kind}})["returnValue"]:
+            n = c["refPath"].rsplit(".", 1)[-1]
+            if n not in old:
+                old.append(n)
+    if probe:
+        call(S + "remove_from_scene", {"actor": probe})
+    for a in have[1:]:          # never more than one test copy
+        call(S + "remove_from_scene", {"actor": a})
+    for n in old:
+        call(A + "remove_component", {"component": {"refPath": cls + ":" + n + "_GEN_VARIABLE"}})
+    for p in DATA["parts"]:
+        if p.get("light"):
+            c = call(A + "add_component", {"owner": ref, "component_type": {"refPath": "/Script/Engine.PointLightComponent"},
+                                           "name": p["name"]})["returnValue"]
+            lt = p["light"]
+            col = lt.get("color", [255, 200, 140])
+            call(O + "set_properties", {"instance": c, "values": json.dumps({
+                "RelativeLocation": {"X": p["loc"][0], "Y": p["loc"][1], "Z": p["loc"][2]},
+                "Intensity": float(lt.get("intensity", 8.0)), "AttenuationRadius": float(lt.get("radius", 800.0)),
+                "LightColor": {"R": col[0], "G": col[1], "B": col[2], "A": 255}})})
+            continue
+        c = call(A + "add_component", {"owner": ref, "component_type": {"refPath": "/Script/Engine.StaticMeshComponent"},
+                                       "name": p["name"]})["returnValue"]
+        call(O + "set_properties", {"instance": c, "values": json.dumps({
+            "StaticMesh": p["mesh"],
+            "RelativeLocation": {"X": p["loc"][0], "Y": p["loc"][1], "Z": p["loc"][2]},
+            "RelativeRotation": {"Pitch": p["rot"][0], "Yaw": p["rot"][1], "Roll": p["rot"][2]},
+            "RelativeScale3D": {"X": p["scale"][0], "Y": p["scale"][1], "Z": p["scale"][2]}})})
+    call(BT + "compile_blueprint", {"blueprint": ref})
+    saved = call(AT + "save_assets", {"asset_paths": [path]})["returnValue"]
+    t = DATA["at"]
+    xf = {"location": {"x": t[0], "y": t[1], "z": t[2]}, "rotation": {"pitch": 0, "yaw": 0, "roll": 0},
+          "scale": {"x": 1, "y": 1, "z": 1}}
+    now = copies()              # the placed copy was re-instanced by the compile: find it again
+    if now:
+        a = now[0]
+        call(A + "set_actor_transform", {"actor": a, "xform": xf, "worldspace": True})
+    else:
+        a = call(S + "add_to_scene_from_asset", {"asset_path": path, "name": DATA["label"], "xform": xf})["returnValue"]
+    if not call(A + "has_tag", {"actor": a, "tag": DATA["tag"]})["returnValue"]:
+        call(A + "add_tag", {"actor": a, "tag": DATA["tag"]})
+    return {"saved": saved, "actor": a["refPath"], "replaced": True, "in_place": True, "old_parts": len(old)}
+"""
+
 
 def build(name, folder, resolved, at, level):
     """Creates/replaces the Blueprint and its one test copy. The caller has already checked the level, the
@@ -1188,6 +1305,14 @@ def build(name, folder, resolved, at, level):
     data = {"folder": folder, "name": name, "label": label, "at": list(at), "tag": KIT_TAG,
             "may_replace": overwrite_allowed(name, folder) is None,
             "parts": [{k: p[k] for k in ("name", "mesh", "loc", "rot", "scale", "light") if k in p} for p in resolved]}
+    if data["may_replace"] and ue.call(AT_, "exists", {"path": path}).get("returnValue"):
+        try:                                      # ours and already there: swap its parts in place
+            got = ue.batch(_UPDATE_JOB, {**data, "probe_z": PROBE_Z})
+            log_action("build", level=level, blueprint=path, in_place=True, old_parts=got.get("old_parts"),
+                       test_copy=got.get("actor"), at=list(at))
+            return got
+        except ue.UEError as e:                   # e.g. an asset whose parts cannot be listed: start it afresh
+            log_action("in_place_failed", level=level, blueprint=path, error=str(e)[:300])
     cleared = ue.batch(_BUILD_JOB, data)          # step 1: remove this Blueprint's old copy and old asset
     if cleared.get("refused"):
         return {"refused": overwrite_allowed(name, folder)}

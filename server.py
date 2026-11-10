@@ -374,5 +374,18 @@ def kit_notes(folder: str = "/Game/FantasyBundle/Meshes", query: str = "") -> st
         return f"ERROR {e}"
 
 
+
+@mcp.tool()
+def promote(name: str, folder: str = "/Game/ARPG/Environment/Town") -> str:
+    """Move a FINISHED design out of the sandbox into the game's content folder, so it can be used in real
+    maps. Only for a design ue-kit built that has no issues; refused otherwise. Do this once per design, when
+    Mu has accepted it - not as part of building."""
+    _fresh()
+    try:
+        return kit.promote(name, folder)
+    except ue.UEError as e:
+        return f"ERROR {e}"
+
+
 if __name__ == "__main__":
     mcp.run()
