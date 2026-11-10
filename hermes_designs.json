@@ -1,0 +1,579 @@
+{
+ "BP_HouseCottage": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor"
+  },
+  {
+   "cover": "GroundFloor:40",
+   "mesh": "SM_HouseRoof04",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -150,
+    0
+   ],
+   "place": "on:GroundFloor",
+   "scale": [
+    1.4,
+    1.4,
+    2.2
+   ]
+  }
+ ],
+ "BP_HouseTownhouse": [
+  {
+   "mesh": "SM_HouseBase01",
+   "name": "Plinth"
+  },
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor",
+   "place": "on:Plinth"
+  },
+  {
+   "mesh": "SM_House2dFloor01",
+   "name": "UpperFloor1",
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_House2dFloor01",
+   "name": "UpperFloor2",
+   "place": "on:GroundFloor",
+   "offset": [
+    200,
+    0,
+    0
+   ]
+  },
+  {
+   "mesh": "SM_HouseRoof01",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:UpperFloor1+UpperFloor2"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_CastleStairs3m",
+   "name": "Steps",
+   "offset": [
+    0,
+    150,
+    0
+   ],
+   "place": "against:Plinth:+Y",
+   "scale": [
+    1,
+    1.33,
+    1.33
+   ]
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -100,
+    -180,
+    -17
+   ],
+   "place": "on:UpperFloor2",
+   "scale": [
+    1.4,
+    1.4,
+    2.2
+   ]
+  }
+ ],
+ "BP_HouseDouble": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundA"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "GroundB",
+   "place": "against:GroundA:+X"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "UpperA",
+   "place": "on:GroundA"
+  },
+  {
+   "mesh": "SM_House1stFloor03",
+   "name": "UpperB",
+   "place": "on:GroundB"
+  },
+  {
+   "cover": "UpperA+UpperB:50",
+   "mesh": "SM_HouseRoof03",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -10
+   ],
+   "place": "on:UpperA+UpperB"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundA:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -150,
+    35
+   ],
+   "place": "on:UpperA",
+   "scale": [
+    1.4,
+    1.4,
+    2.2
+   ]
+  }
+ ],
+ "BP_HermesHouse": [
+  {
+   "mesh": "SM_House1stFloor02",
+   "name": "GroundFloor",
+   "yaw": 180
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "UpperA",
+   "place": "on:GroundFloor",
+   "offset": [
+    -145,
+    0,
+    0
+   ]
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "UpperB",
+   "place": "on:GroundFloor",
+   "offset": [
+    165,
+    0,
+    0
+   ]
+  },
+  {
+   "cover": "GroundFloor:50",
+   "mesh": "SM_HouseRoof03",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -10
+   ],
+   "place": "on:UpperA+UpperB"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    143,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -100,
+    -180,
+    0
+   ],
+   "place": "on:UpperA",
+   "scale": [
+    1.4,
+    1.4,
+    2.2
+   ]
+  }
+ ],
+ "BP_HouseBakery": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor"
+  },
+  {
+   "cover": "GroundFloor:40",
+   "mesh": "SM_HouseRoof02",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_ChimneyLarge02",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Canopy01",
+   "name": "Canopy",
+   "offset": [
+    0,
+    200,
+    0
+   ],
+   "place": "on:GroundFloor"
+  }
+ ],
+ "BP_HouseGuardPost": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "Base"
+  },
+  {
+   "mesh": "SM_CastleGate",
+   "name": "Door",
+   "offset": [
+    0,
+    -10,
+    0
+   ],
+   "place": "flush:Base:+Y"
+  },
+  {
+   "mesh": "SM_HouseRoof04",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:Base"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:Base",
+   "scale": [
+    1.2,
+    1.2,
+    1.5
+   ]
+  }
+ ],
+ "BP_HouseFisher": [
+  {
+   "mesh": "SM_WoodenPier01",
+   "name": "Pier"
+  },
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor",
+   "place": "on:Pier"
+  },
+  {
+   "cover": "GroundFloor:40",
+   "mesh": "SM_HouseRoof04",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:GroundFloor",
+   "scale": [
+    1.2,
+    1.2,
+    1.5
+   ]
+  }
+ ],
+ "BP_HouseSmithy": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor"
+  },
+  {
+   "mesh": "SM_WoodBeam3m",
+   "name": "BeamL",
+   "offset": [
+    -120,
+    150,
+    0
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_WoodBeam3m",
+   "name": "BeamR",
+   "offset": [
+    120,
+    150,
+    0
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "cover": "GroundFloor:30",
+   "mesh": "SM_HouseRoof05",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_ChimneyLarge01",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:GroundFloor"
+  }
+ ],
+ "BP_HouseInn": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundA"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "GroundB",
+   "place": "against:GroundA:+X"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "UpperA",
+   "place": "on:GroundA"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "GroundB",
+   "place": "against:GroundA:+X"
+  },
+  {
+   "mesh": "SM_House1stFloor01",
+   "name": "UpperA",
+   "place": "on:GroundA"
+  },
+  {
+   "mesh": "SM_House1stFloor03",
+   "name": "UpperB",
+   "place": "on:GroundB"
+  },
+  {
+   "cover": "UpperA+UpperB:50",
+   "mesh": "SM_HouseRoof03",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -10
+   ],
+   "place": "on:UpperA+UpperB"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundA:+Y"
+  },
+  {
+   "mesh": "SM_Sign01",
+   "name": "Sign",
+   "offset": [
+    80,
+    -10,
+    0
+   ],
+   "place": "flush:GroundA:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:UpperA",
+   "scale": [
+    1.4,
+    1.4,
+    2.2
+   ]
+  }
+ ],
+ "BP_HouseFarm": [
+  {
+   "mesh": "SM_House1stFloor04",
+   "name": "GroundFloor"
+  },
+  {
+   "cover": "GroundFloor:40",
+   "mesh": "SM_HouseRoof02",
+   "name": "Roof",
+   "offset": [
+    0,
+    0,
+    -5
+   ],
+   "place": "on:GroundFloor"
+  },
+  {
+   "mesh": "SM_Door01",
+   "name": "Door",
+   "offset": [
+    0,
+    -14,
+    0
+   ],
+   "place": "flush:GroundFloor:+Y"
+  },
+  {
+   "mesh": "SM_HouseChimney",
+   "name": "Chimney",
+   "offset": [
+    -80,
+    -120,
+    0
+   ],
+   "place": "on:GroundFloor",
+   "scale": [
+    1.2,
+    1.2,
+    1.5
+   ]
+  },
+  {
+   "mesh": "SM_WoodFence02",
+   "name": "FenceL",
+   "offset": [
+    -200,
+    0,
+    0
+   ]
+  },
+  {
+   "mesh": "SM_WoodFence02",
+   "name": "FenceR",
+   "offset": [
+    200,
+    0,
+    0
+   ]
+  },
+  {
+   "mesh": "SM_WoodFence01",
+   "name": "FenceB",
+   "offset": [
+    0,
+    -200,
+    0
+   ],
+   "yaw": 90
+  }
+ ]
+}

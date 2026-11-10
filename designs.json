@@ -1,0 +1,2217 @@
+{
+"BP_GatefallHouse": {
+"folder": "/Game/ARPG/Environment/Town",
+"parts": [
+{
+"name": "Plinth",
+"mesh": "SM_HouseBase01"
+},
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor04",
+"place": "on:Plinth"
+},
+{
+"name": "UpperFloor",
+"mesh": "SM_House2dFloor01",
+"place": "on:GroundFloor",
+"offset": [
+0,
+0,
+-7
+]
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof01",
+"place": "on:UpperFloor",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "Steps",
+"mesh": "SM_CastleStairs3m",
+"place": "against:Plinth:+Y",
+"scale": [
+1,
+1.33,
+1.33
+]
+},
+{
+"name": "Chimney",
+"place": "on:UpperFloor",
+"offset": [
+-120,
+-220,
+-20
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HermesHouse": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"mesh": "SM_House1stFloor02",
+"name": "GroundFloor",
+"yaw": 180
+},
+{
+"mesh": "SM_House1stFloor01",
+"name": "UpperA",
+"place": "on:GroundFloor",
+"offset": [
+-145,
+0,
+0
+]
+},
+{
+"mesh": "SM_House1stFloor01",
+"name": "UpperB",
+"place": "on:GroundFloor",
+"offset": [
+165,
+0,
+0
+]
+},
+{
+"cover": "GroundFloor:50",
+"mesh": "SM_HouseRoof03",
+"name": "Roof",
+"offset": [
+0,
+0,
+-10
+],
+"place": "on:UpperA+UpperB"
+},
+{
+"mesh": "SM_Door01",
+"name": "Door",
+"offset": [
+143,
+-14,
+0
+],
+"place": "flush:GroundFloor:+Y"
+},
+{
+"mesh": "SM_HouseChimney",
+"name": "Chimney",
+"offset": [
+-100,
+-180,
+0
+],
+"place": "on:UpperA",
+"scale": [
+1.4,
+1.4,
+2.2
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseBakery": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+0,
+-2.5,
+0
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof02",
+"place": "at",
+"offset": [
+-0.8,
+-14,
+305
+],
+"scale": [
+0.7588,
+0.9004,
+0.8296
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Door01",
+"place": "at",
+"offset": [
+60,
+291.5,
+0
+]
+},
+{
+"name": "Chimney",
+"mesh": "/Game/FantasyBundle/Meshes/SM_ChimneyLarge02",
+"place": "at",
+"offset": [
+-80,
+-120,
+300
+]
+},
+{
+"name": "Canopy",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy01",
+"place": "at",
+"offset": [
+0,
+474.5,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseBarn": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor02",
+"yaw": 180
+},
+{
+"name": "SideFloor",
+"mesh": "SM_House1stFloor03",
+"place": "against:GroundFloor:-X"
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof03",
+"yaw": 90,
+"place": "on:GroundFloor+SideFloor",
+"cover": "GroundFloor+SideFloor:45",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+143,
+-14,
+0
+]
+},
+{
+"name": "Wagon",
+"mesh": "SM_Wagon01",
+"place": "against:GroundFloor:+Y",
+"offset": [
+-200,
+120,
+0
+],
+"scale": 0.65
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseCottage": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"mesh": "SM_House1stFloor04",
+"name": "GroundFloor"
+},
+{
+"cover": "GroundFloor:40",
+"mesh": "SM_HouseRoof04",
+"name": "Roof",
+"offset": [
+0,
+0,
+-5
+],
+"place": "on:GroundFloor"
+},
+{
+"mesh": "SM_Door01",
+"name": "Door",
+"offset": [
+0,
+-14,
+0
+],
+"place": "flush:GroundFloor:+Y"
+},
+{
+"mesh": "SM_HouseChimney",
+"name": "Chimney",
+"offset": [
+-80,
+-150,
+0
+],
+"place": "on:GroundFloor",
+"scale": [
+1.4,
+1.4,
+2.2
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseDouble": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"mesh": "SM_House1stFloor04",
+"name": "GroundA"
+},
+{
+"mesh": "SM_House1stFloor01",
+"name": "GroundB",
+"place": "against:GroundA:+X"
+},
+{
+"mesh": "SM_House1stFloor01",
+"name": "UpperA",
+"place": "on:GroundA"
+},
+{
+"mesh": "SM_House1stFloor03",
+"name": "UpperB",
+"place": "on:GroundB"
+},
+{
+"cover": "UpperA+UpperB:50",
+"mesh": "SM_HouseRoof03",
+"name": "Roof",
+"offset": [
+0,
+0,
+-10
+],
+"place": "on:UpperA+UpperB"
+},
+{
+"mesh": "SM_Door01",
+"name": "Door",
+"offset": [
+0,
+-14,
+0
+],
+"place": "flush:GroundA:+Y"
+},
+{
+"mesh": "SM_HouseChimney",
+"name": "Chimney",
+"offset": [
+-80,
+-150,
+35
+],
+"place": "on:UpperA",
+"scale": [
+1.4,
+1.4,
+2.2
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseFarm": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+0,
+-2.5,
+0
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof02",
+"place": "at",
+"offset": [
+-0.8,
+-14,
+305
+],
+"scale": [
+0.7588,
+0.9004,
+0.8296
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Door01",
+"place": "at",
+"offset": [
+60,
+291.5,
+0
+]
+},
+{
+"name": "Chimney",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseChimney",
+"place": "at",
+"offset": [
+-80,
+-120,
+300
+],
+"scale": [
+1.2,
+1.2,
+1.5
+]
+},
+{
+"name": "FenceE",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence02",
+"place": "at",
+"offset": [
+455,
+0,
+0
+]
+},
+{
+"name": "FenceW",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence02",
+"place": "at",
+"offset": [
+-455,
+0,
+0
+]
+},
+{
+"name": "FenceN1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence01",
+"place": "at",
+"offset": [
+-98.8,
+319.4,
+0
+]
+},
+{
+"name": "FenceN2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence01",
+"place": "at",
+"offset": [
+101.2,
+319.4,
+0
+]
+},
+{
+"name": "FenceS1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence01",
+"place": "at",
+"offset": [
+-98.8,
+-319.4,
+0
+]
+},
+{
+"name": "FenceS2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodFence01",
+"place": "at",
+"offset": [
+101.2,
+-319.4,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseFisher": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Pier",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodenPier01",
+"place": "at",
+"offset": [
+0,
+0,
+45
+],
+"scale": [
+1.2,
+1.2,
+1
+]
+},
+{
+"name": "GroundFloor",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+0,
+-2.5,
+54
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof05",
+"place": "at",
+"offset": [
+0,
+0,
+366.7
+],
+"scale": [
+0.7088,
+1.8316,
+1.2702
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Door01",
+"place": "at",
+"offset": [
+60,
+291.5,
+54
+]
+},
+{
+"name": "Chimney",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseChimney",
+"place": "at",
+"offset": [
+-80,
+-120,
+354
+],
+"scale": [
+1.2,
+1.2,
+1.5
+]
+},
+{
+"name": "BeamL",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodBeam3m",
+"place": "at",
+"offset": [
+-100,
+-200,
+150
+]
+},
+{
+"name": "BeamR",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodBeam3m",
+"place": "at",
+"offset": [
+100,
+-200,
+150
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseGuardPost": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Base",
+"mesh": "/Game/FantasyBundle/Meshes/SM_FloorCastle01",
+"place": "at",
+"offset": [
+0,
+0,
+50
+]
+},
+{
+"name": "WallN1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-150,
+350,
+0
+]
+},
+{
+"name": "WallN2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+150,
+350,
+0
+]
+},
+{
+"name": "WallS1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-150,
+-300,
+0
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleGate",
+"place": "at",
+"offset": [
+150,
+-287,
+0
+],
+"scale": [
+1,
+1,
+0.75
+]
+},
+{
+"name": "WallE1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+300,
+-150,
+0
+],
+"yaw": 90
+},
+{
+"name": "WallE2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+300,
+150,
+0
+],
+"yaw": 90
+},
+{
+"name": "WallW1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-350,
+-150,
+0
+],
+"yaw": 90
+},
+{
+"name": "WallW2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-350,
+150,
+0
+],
+"yaw": 90
+},
+{
+"name": "WallN1_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-150,
+350,
+300
+]
+},
+{
+"name": "WallN2_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+150,
+350,
+300
+]
+},
+{
+"name": "WallS1_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-150,
+-300,
+300
+]
+},
+{
+"name": "WallS2_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+150,
+-268.5,
+300
+]
+},
+{
+"name": "WallE1_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+300,
+-150,
+300
+],
+"yaw": 90
+},
+{
+"name": "WallE2_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+300,
+150,
+300
+],
+"yaw": 90
+},
+{
+"name": "WallW1_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-350,
+-150,
+300
+],
+"yaw": 90
+},
+{
+"name": "WallW2_2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleWall6m",
+"place": "at",
+"offset": [
+-350,
+150,
+300
+],
+"yaw": 90
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof03",
+"place": "at",
+"offset": [
+-1.2,
+0,
+610.1
+],
+"scale": [
+1.246,
+0.9974,
+1.1217
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseInn": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "GroundA",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+0,
+-2.5,
+0
+]
+},
+{
+"name": "GroundB",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+310,
+-2.5,
+0
+]
+},
+{
+"name": "UpperA",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor01",
+"place": "at",
+"offset": [
+0,
+0,
+300
+]
+},
+{
+"name": "UpperB",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor01",
+"place": "at",
+"offset": [
+310,
+0,
+300
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof03",
+"place": "at",
+"offset": [
+153.8,
+0,
+609.3
+],
+"scale": [
+1.1502,
+0.9207,
+1.0354
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Door01",
+"place": "at",
+"offset": [
+60,
+291.5,
+0
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign01",
+"place": "at",
+"offset": [
+59.8,
+317.5,
+0
+]
+},
+{
+"name": "Chimney",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseChimney",
+"place": "at",
+"offset": [
+-80,
+-120,
+600
+],
+"scale": [
+1.4,
+1.4,
+2.2
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseLonghouse": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "MidFloor",
+"mesh": "SM_House1stFloor04"
+},
+{
+"name": "WestFloor",
+"mesh": "SM_House1stFloor01",
+"place": "against:MidFloor:-X"
+},
+{
+"name": "EastFloor",
+"mesh": "SM_House1stFloor03",
+"place": "against:MidFloor:+X"
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof03",
+"place": "on:WestFloor+MidFloor+EastFloor",
+"yaw": 90,
+"cover": "WestFloor+MidFloor+EastFloor:45",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:MidFloor:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "Chimney",
+"place": "on:EastFloor",
+"offset": [
+60,
+-150,
+60
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseMerchant": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor02",
+"yaw": 180
+},
+{
+"name": "UpperFloorW",
+"mesh": "SM_House1stFloor01",
+"place": "on:GroundFloor",
+"offset": [
+-155,
+0,
+0
+]
+},
+{
+"name": "UpperFloorE",
+"mesh": "SM_House1stFloor03",
+"place": "on:GroundFloor",
+"offset": [
+155,
+0,
+0
+]
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof02",
+"place": "on:UpperFloorW+UpperFloorE",
+"cover": "UpperFloorW+UpperFloorE:45",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+143,
+-14,
+0
+]
+},
+{
+"name": "Chimney",
+"place": "on:UpperFloorW+UpperFloorE",
+"offset": [
+-200,
+-200,
+60
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HousePair": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "PlinthA",
+"mesh": "SM_HouseBase01"
+},
+{
+"name": "GroundFloorA",
+"mesh": "SM_House1stFloor04",
+"place": "on:PlinthA"
+},
+{
+"name": "UpperFloorA",
+"mesh": "SM_House2dFloor01",
+"place": "on:GroundFloorA",
+"offset": [
+0,
+0,
+-7
+]
+},
+{
+"name": "RoofA",
+"mesh": "SM_HouseRoof01",
+"place": "on:UpperFloorA",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "DoorA",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloorA:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "StepsA",
+"mesh": "SM_CastleStairs3m",
+"place": "against:PlinthA:+Y",
+"scale": [
+1,
+1.33,
+1.33
+]
+},
+{
+"name": "PlinthB",
+"mesh": "SM_HouseBase01",
+"place": "against:PlinthA:+X",
+"offset": [
+200,
+0,
+0
+]
+},
+{
+"name": "GroundFloorB",
+"mesh": "SM_House1stFloor04",
+"place": "on:PlinthB"
+},
+{
+"name": "UpperFloorB",
+"mesh": "SM_House2dFloor01",
+"place": "on:GroundFloorB",
+"offset": [
+0,
+0,
+-7
+]
+},
+{
+"name": "RoofB",
+"mesh": "SM_HouseRoof02",
+"place": "on:UpperFloorB",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "DoorB",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloorB:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "StepsB",
+"mesh": "SM_CastleStairs3m",
+"place": "against:PlinthB:+Y",
+"scale": [
+1,
+1.33,
+1.33
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HousePorch": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "Plinth",
+"mesh": "SM_HouseBase01"
+},
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor04",
+"place": "on:Plinth"
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof01",
+"place": "on:GroundFloor",
+"cover": "GroundFloor:45",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "Steps",
+"mesh": "SM_CastleStairs3m",
+"place": "against:Plinth:+Y",
+"scale": [
+1,
+1.33,
+1.33
+]
+},
+{
+"name": "PostL",
+"mesh": "SM_WoodBeam3m",
+"place": "against:Plinth:+Y",
+"offset": [
+-110,
+100,
+0
+],
+"scale": [
+1,
+1,
+1.05
+]
+},
+{
+"name": "PostR",
+"mesh": "SM_WoodBeam3m",
+"place": "against:Plinth:+Y",
+"offset": [
+110,
+100,
+0
+],
+"scale": [
+1,
+1,
+1.05
+]
+},
+{
+"name": "PorchRoof",
+"mesh": "SM_HouseRoof04",
+"yaw": 90,
+"place": "flush:GroundFloor:+Y",
+"offset": [
+0,
+160,
+300
+],
+"scale": [
+0.7,
+0.4,
+0.5
+]
+},
+{
+"name": "Chimney",
+"place": "on:GroundFloor",
+"offset": [
+0,
+-230,
+120
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseSmithy": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"mesh": "SM_House1stFloor04",
+"name": "GroundFloor"
+},
+{
+"mesh": "SM_WoodBeam3m",
+"name": "BeamL",
+"offset": [
+-120,
+150,
+0
+],
+"place": "on:GroundFloor"
+},
+{
+"mesh": "SM_WoodBeam3m",
+"name": "BeamR",
+"offset": [
+120,
+150,
+0
+],
+"place": "on:GroundFloor"
+},
+{
+"cover": "GroundFloor:30",
+"mesh": "SM_HouseRoof05",
+"name": "Roof",
+"offset": [
+0,
+0,
+-5
+],
+"place": "on:GroundFloor"
+},
+{
+"mesh": "SM_Door01",
+"name": "Door",
+"offset": [
+0,
+-14,
+0
+],
+"place": "flush:GroundFloor:+Y"
+},
+{
+"mesh": "SM_ChimneyLarge01",
+"name": "Chimney",
+"offset": [
+-80,
+-120,
+0
+],
+"place": "on:GroundFloor"
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseStoneStore": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "Base",
+"mesh": "SM_FloorCastle01"
+},
+{
+"name": "WallBack",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:-Y",
+"yaw": 180,
+"offset": [
+-150,
+0,
+0
+]
+},
+{
+"name": "WallBack2",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:-Y",
+"yaw": 180,
+"offset": [
+150,
+0,
+0
+]
+},
+{
+"name": "WallWest",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:-X",
+"yaw": 90,
+"offset": [
+0,
+-150,
+0
+]
+},
+{
+"name": "WallWest2",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:-X",
+"yaw": 90,
+"offset": [
+0,
+150,
+0
+]
+},
+{
+"name": "WallEast",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:+X",
+"yaw": -90,
+"offset": [
+0,
+-150,
+0
+]
+},
+{
+"name": "WallEast2",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:+X",
+"yaw": -90,
+"offset": [
+0,
+150,
+0
+]
+},
+{
+"name": "WallFront",
+"mesh": "SM_CastleWall6m",
+"place": "flush:Base:+Y",
+"offset": [
+-150,
+0,
+0
+]
+},
+{
+"name": "DoorGate",
+"mesh": "SM_CastleGate",
+"place": "flush:Base:+Y",
+"offset": [
+150,
+-18,
+0
+],
+"scale": [
+1,
+1,
+0.75
+]
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof03",
+"place": "on:WallBack+WallFront+WallWest+WallEast",
+"cover": "Base:30",
+"offset": [
+0,
+0,
+-10
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseTall": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor04"
+},
+{
+"name": "SecondFloor",
+"mesh": "SM_House2dFloor01",
+"place": "on:GroundFloor",
+"offset": [
+0,
+0,
+-7
+]
+},
+{
+"name": "ThirdFloor",
+"mesh": "SM_House2dFloor01",
+"place": "on:SecondFloor",
+"offset": [
+0,
+0,
+-7
+]
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof03",
+"place": "on:ThirdFloor",
+"cover": "ThirdFloor:45",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "BracketE",
+"mesh": "SM_HouseWoodSupport01",
+"yaw": 180,
+"place": "against:GroundFloor:+X",
+"offset": [
+0,
+0,
+245
+]
+},
+{
+"name": "BracketW",
+"mesh": "SM_HouseWoodSupport01",
+"place": "against:GroundFloor:-X",
+"offset": [
+0,
+0,
+245
+]
+},
+{
+"name": "Chimney",
+"place": "on:ThirdFloor",
+"offset": [
+-120,
+-220,
+-20
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseTower": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor04"
+},
+{
+"name": "SecondFloor",
+"mesh": "SM_House1stFloor01",
+"place": "on:GroundFloor"
+},
+{
+"name": "ThirdFloor",
+"mesh": "SM_House1stFloor03",
+"place": "on:SecondFloor"
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof01",
+"place": "on:ThirdFloor",
+"cover": "ThirdFloor:40",
+"offset": [
+0,
+0,
+-10
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+0,
+-14,
+0
+]
+},
+{
+"name": "WindowW",
+"mesh": "SM_Window01",
+"place": "against:SecondFloor:-X",
+"yaw": 90,
+"offset": [
+3,
+0,
+90
+]
+},
+{
+"name": "WindowE",
+"mesh": "SM_Window01",
+"place": "against:ThirdFloor:+X",
+"yaw": 90,
+"offset": [
+-3,
+0,
+90
+]
+},
+{
+"name": "Chimney",
+"place": "on:ThirdFloor",
+"offset": [
+0,
+-200,
+0
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_HouseTownhouse": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Plinth",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseBase01",
+"place": "at",
+"offset": [
+0,
+-11.5,
+0
+]
+},
+{
+"name": "GroundFloor",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House1stFloor04",
+"place": "at",
+"offset": [
+0,
+-2.5,
+100
+]
+},
+{
+"name": "UpperFloor1",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House2dFloor01",
+"place": "at",
+"offset": [
+0,
+0,
+400
+]
+},
+{
+"name": "UpperFloor2",
+"mesh": "/Game/FantasyBundle/Meshes/SM_House2dFloor01",
+"place": "at",
+"offset": [
+0,
+0,
+702
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseRoof01",
+"place": "at",
+"offset": [
+2,
+1,
+1004
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Door01",
+"place": "at",
+"offset": [
+60,
+291.5,
+100
+]
+},
+{
+"name": "Steps",
+"mesh": "/Game/FantasyBundle/Meshes/SM_CastleStairs3m",
+"place": "at",
+"offset": [
+0,
+454.5,
+0
+],
+"scale": [
+1,
+1.33,
+1.33
+]
+},
+{
+"name": "Chimney",
+"mesh": "/Game/FantasyBundle/Meshes/SM_HouseChimney",
+"place": "at",
+"offset": [
+-100,
+-180,
+987
+],
+"scale": [
+1.4,
+1.4,
+2.2
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_HouseWorkshop": {
+"folder": "/Game/ARPG/_Sandbox/Houses",
+"parts": [
+{
+"name": "GroundFloor",
+"mesh": "SM_House1stFloor05",
+"yaw": -90
+},
+{
+"name": "Roof",
+"mesh": "SM_HouseRoof04",
+"place": "on:GroundFloor",
+"cover": "GroundFloor:50",
+"offset": [
+0,
+0,
+-8
+]
+},
+{
+"name": "Door",
+"mesh": "SM_Door01",
+"place": "flush:GroundFloor:+Y",
+"offset": [
+145,
+-14,
+0
+]
+},
+{
+"name": "WoodPile",
+"mesh": "SM_WoodChunks02",
+"place": "against:GroundFloor:+X",
+"scale": 0.6
+},
+{
+"name": "Cart",
+"mesh": "SM_Wagon02",
+"place": "against:GroundFloor:-X",
+"yaw": 90,
+"scale": 0.65
+},
+{
+"name": "Chimney",
+"place": "on:GroundFloor",
+"offset": [
+100,
+-120,
+40
+],
+"mesh": "SM_HouseChimney",
+"scale": [
+1.4,
+1.4,
+3.6
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "parts file (matches the built copy)"
+},
+"BP_MarketStall_Canopy": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Canopy",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy01",
+"place": "at",
+"offset": [
+0,
+0,
+0
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy03",
+"place": "at",
+"offset": [
+0,
+0,
+0
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodenDoor02",
+"place": "at",
+"offset": [
+0,
+181,
+0
+],
+"scale": [
+1,
+1,
+0.6
+]
+},
+{
+"name": "Barrel",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Barrel01",
+"place": "at",
+"offset": [
+200,
+220,
+0
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign01",
+"place": "at",
+"offset": [
+-220.2,
+220,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_MarketStall_Fruit": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Canopy",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy01",
+"place": "at",
+"offset": [
+0,
+0,
+0
+]
+},
+{
+"name": "CrateA",
+"mesh": "/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Crate",
+"place": "at",
+"offset": [
+-100,
+50.1,
+0
+]
+},
+{
+"name": "CrateB",
+"mesh": "/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Crate",
+"place": "at",
+"offset": [
+100,
+50.1,
+0
+]
+},
+{
+"name": "OpenBox",
+"mesh": "/Game/Medieval_Sewer_Dungeon/Static_Meshes/Props/SM_Open_Box",
+"place": "at",
+"offset": [
+0.1,
+50,
+0
+]
+},
+{
+"name": "Barrel",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Barrel01",
+"place": "at",
+"offset": [
+250,
+100,
+0
+]
+},
+{
+"name": "Lantern",
+"mesh": "/Game/CustomAssets/Lantern_00/SM_Lantern_00_N1",
+"place": "at",
+"offset": [
+0,
+0,
+334.5
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign01",
+"place": "at",
+"offset": [
+-270.2,
+100,
+0
+]
+},
+{
+"name": "AppleRed",
+"mesh": "/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Red_Fresh_03/SM_Food_Fruit_Apple_Red_Fresh_03",
+"place": "at",
+"offset": [
+-100,
+50,
+44
+]
+},
+{
+"name": "AppleGreen",
+"mesh": "/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Apple_Green_Fresh_02/SM_Food_Fruit_Apple_Green_Fresh_02",
+"place": "at",
+"offset": [
+100,
+50,
+44.3
+]
+},
+{
+"name": "GrapeRed",
+"mesh": "/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Grape_Red_Bunch_01/SM_Food_Fruit_Grape_Red_Bunch_01",
+"place": "at",
+"offset": [
+0,
+50,
+84
+]
+},
+{
+"name": "Melon",
+"mesh": "/Game/Scene_Banquet/Assets/Megascans/3D_Assets/Food_Fruit_Melon_Water_Fresh_04/SM_Food_Fruit_Melon_Water_Fresh_04",
+"place": "at",
+"offset": [
+0,
+120,
+10
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [
+"CLASH: Canopy and CrateA occupy the same spot - move one of them",
+"CLASH: Canopy and CrateB occupy the same spot - move one of them",
+"CLASH: Canopy and OpenBox occupy the same spot - move one of them",
+"CLASH: Canopy and Lantern occupy the same spot - move one of them",
+"CLASH: Canopy and AppleRed occupy the same spot - move one of them",
+"CLASH: Canopy and AppleGreen occupy the same spot - move one of them",
+"CLASH: Canopy and GrapeRed occupy the same spot - move one of them",
+"CLASH: Canopy and Melon occupy the same spot - move one of them"
+],
+"source": "read from the built copy"
+},
+"BP_MarketStall_Pavilion": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "PillarA",
+"mesh": "/Game/FantasyBundle/Meshes/SM_LargePillar",
+"place": "at",
+"offset": [
+150,
+150,
+0.1
+],
+"scale": [
+0.2,
+0.2,
+0.2
+]
+},
+{
+"name": "PillarB",
+"mesh": "/Game/FantasyBundle/Meshes/SM_LargePillar",
+"place": "at",
+"offset": [
+-150,
+150,
+0.1
+],
+"scale": [
+0.2,
+0.2,
+0.2
+]
+},
+{
+"name": "PillarC",
+"mesh": "/Game/FantasyBundle/Meshes/SM_LargePillar",
+"place": "at",
+"offset": [
+150,
+-150,
+0.1
+],
+"scale": [
+0.2,
+0.2,
+0.2
+]
+},
+{
+"name": "PillarD",
+"mesh": "/Game/FantasyBundle/Meshes/SM_LargePillar",
+"place": "at",
+"offset": [
+-150,
+-150,
+0.1
+],
+"scale": [
+0.2,
+0.2,
+0.2
+]
+},
+{
+"name": "Roof",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy03",
+"place": "at",
+"offset": [
+0,
+0,
+423
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodenDoor02",
+"place": "at",
+"offset": [
+0,
+1,
+0
+],
+"scale": [
+1,
+1,
+0.6
+]
+},
+{
+"name": "Barrel",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Barrel01",
+"place": "at",
+"offset": [
+150,
+0,
+0
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign01",
+"place": "at",
+"offset": [
+-170.2,
+0,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_MarketStall_Wagon": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "Wagon",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Wagon01",
+"place": "at",
+"offset": [
+4,
+91.5,
+0
+]
+},
+{
+"name": "Barrel",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Barrel01",
+"place": "at",
+"offset": [
+0,
+0,
+179
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodenDoor02",
+"place": "at",
+"offset": [
+220,
+151,
+0
+],
+"scale": [
+1,
+1,
+0.6
+]
+},
+{
+"name": "Planks",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodPlank07",
+"place": "at",
+"offset": [
+-280,
+0,
+0
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign05",
+"place": "at",
+"offset": [
+174.5,
+100,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+},
+"BP_MarketStall_Wood": {
+"folder": "/Game/ARPG/_Sandbox",
+"parts": [
+{
+"name": "LegA",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodPlank01",
+"place": "at",
+"offset": [
+160,
+160.1,
+0
+],
+"scale": [
+1,
+1,
+0.5
+]
+},
+{
+"name": "LegB",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodPlank01",
+"place": "at",
+"offset": [
+-160,
+160.1,
+0
+],
+"scale": [
+1,
+1,
+0.5
+]
+},
+{
+"name": "LegC",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodPlank01",
+"place": "at",
+"offset": [
+-160,
+-159.9,
+0
+],
+"scale": [
+1,
+1,
+0.5
+]
+},
+{
+"name": "LegD",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodPlank01",
+"place": "at",
+"offset": [
+160,
+-159.9,
+0
+],
+"scale": [
+1,
+1,
+0.5
+]
+},
+{
+"name": "Counter",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Canopy03",
+"place": "at",
+"offset": [
+0,
+0,
+0
+]
+},
+{
+"name": "Door",
+"mesh": "/Game/FantasyBundle/Meshes/SM_WoodenDoor02",
+"place": "at",
+"offset": [
+0,
+181,
+0
+],
+"scale": [
+1,
+1,
+0.6
+]
+},
+{
+"name": "Barrel",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Barrel02",
+"place": "at",
+"offset": [
+240,
+250,
+0
+]
+},
+{
+"name": "Sign",
+"mesh": "/Game/FantasyBundle/Meshes/SM_Sign01",
+"place": "at",
+"offset": [
+-260.2,
+250,
+0
+]
+}
+],
+"built": "before 2026-11-10 (recovered)",
+"issues": [],
+"source": "read from the built copy"
+}
+}

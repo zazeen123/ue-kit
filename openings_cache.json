@@ -1,0 +1,200 @@
+{
+"/Game/FantasyBundle/Meshes/SM_House1stFloor02.SM_House1stFloor02": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": [
+[
+-203,
+-83
+]
+]
+},
+"/Game/FantasyBundle/Meshes/SM_House1stFloor04.SM_House1stFloor04": {
+"+X": [],
+"-X": [],
+"+Y": [
+[
+-60,
+60
+]
+],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_House1stFloor01.SM_House1stFloor01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_House1stFloor03.SM_House1stFloor03": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_House1stFloor05.SM_House1stFloor05": {
+"+X": [],
+"-X": [
+[
+85,
+205
+]
+],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_House2dFloor01.SM_House2dFloor01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleGate.SM_CastleGate": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m01.SM_CastleWall3m01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m02.SM_CastleWall3m02": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m03.SM_CastleWall3m03": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWall3m04.SM_CastleWall3m04": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWall6m.SM_CastleWall6m": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWindow01.SM_CastleWindow01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWindow02.SM_CastleWindow02": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_CastleWindow03.SM_CastleWindow03": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_DoorFrameCastle01.SM_DoorFrameCastle01": {
+"+X": [],
+"-X": [],
+"+Y": [
+[
+-95,
+95
+]
+],
+"-Y": [
+[
+-95,
+95
+]
+]
+},
+"/Game/FantasyBundle/Meshes/SM_Window01.SM_Window01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_Window02.SM_Window02": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_Window03.SM_Window03": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_Window04.SM_Window04": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_WoodenDoor01.SM_WoodenDoor01": {
+"+X": [],
+"-X": [],
+"+Y": [],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_WoodenDoor02.SM_WoodenDoor02": {
+"+X": [],
+"-X": [],
+"+Y": [
+[
+-95,
+35
+]
+],
+"-Y": []
+},
+"/Game/FantasyBundle/Meshes/SM_FloorCastle01.SM_FloorCastle01": {
+"+X": [
+[
+-295,
+295
+]
+],
+"-X": [
+[
+-295,
+295
+]
+],
+"+Y": [
+[
+-295,
+295
+]
+],
+"-Y": [
+[
+-295,
+295
+]
+]
+},
+"__mtime__": {
+"/Game/FantasyBundle/Meshes/SM_House2dFloor01.SM_House2dFloor01": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_House1stFloor04.SM_House1stFloor04": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_House1stFloor01.SM_House1stFloor01": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_House1stFloor02.SM_House1stFloor02": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_House1stFloor03.SM_House1stFloor03": 1793801073,
+"/Game/FantasyBundle/Meshes/SM_CastleWall6m.SM_CastleWall6m": 1793801071,
+"/Game/FantasyBundle/Meshes/SM_FloorCastle01.SM_FloorCastle01": 1793801072,
+"/Game/FantasyBundle/Meshes/SM_House1stFloor05.SM_House1stFloor05": 1793801073
+}
+}
