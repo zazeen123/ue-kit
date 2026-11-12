@@ -1,17 +1,21 @@
 # ue-kit
 
-An MCP server (Python, stdio) that lets an agent — Hermes or Claude — assemble buildings in the **open
+**ภาษาอังกฤษ** - An MCP server (Python, stdio) that lets an agent — Hermes or Claude — assemble buildings in the **open
 Unreal Editor** by saying how parts sit on each other, and then place the results as a town. It computes
 transforms from the meshes' real sizes, checks the result, and hands back photos. It talks to the editor's
 own MCP server at `http://127.0.0.1:8000/mcp`.
+
+**ภาษาไทย** - เซิร์ฟเวอร์ MCP (Python, stdio) ที่ช่วยให้ agent (Hermes หรือ Claude) สามารถประกอบอาคารใน **Unreal Editor** ที่เปิดอยู่ โดยบอกว่าจะวางส่วนต่าง ๆ บนกันอย่างไร แล้ววางผลลัพธ์เป็นเมือง มันคำนวณ
+transform จากขนาดจริงของ mesh, ตรวจสอบผลลัพธ์, และส่งภาพถ่ายกลับมา มันคุยกับเซิร์ฟเวอร์ MCP ของ editor ที่
+`http://127.0.0.1:8000/mcp`
 
 ```
 python U:/ai_workspace/ue-kit/server.py        # stdio; registered in Hermes' config.yaml and MyHeadLine/.mcp.json
 python -m pytest                                # 59 offline tests, no Unreal needed
 ```
 
-How to use the tools is in the shared skill `~/.claude/skills/ue-kit-building/` (SKILL.md and
-`references/town-and-more.md`). This file is about the code.
+วิธีใช้งาน tools อยู่ ใน skill แบบแชร์ `~/.claude/skills/ue-kit-building/` (SKILL.md และ
+`references/town-and-more.md`). ไฟล์นี้เกี่ยวกับโค้ด
 
 ## Files
 
