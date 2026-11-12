@@ -2,6 +2,8 @@
 # one sea plane, a disc per lake, plane segments along each river. Everything tagged WorldWaterTemp
 # (removed and rebuilt on every run), folder Water/Temp, material M_TempWater (made by temp_river_job.py).
 # DATA = {"sea": {"x","y","z","size"}, "lakes": [{x,y,z,radius_cm}], "rivers": [{"width_cm", "points": [{x,y,z}]}]}
+import math
+
 S = "editor_toolset.toolsets.scene.SceneTools."
 A = "editor_toolset.toolsets.actor.ActorTools."
 O = "editor_toolset.toolsets.object.ObjectTools."
